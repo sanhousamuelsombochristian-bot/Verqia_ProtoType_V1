@@ -1,0 +1,35 @@
+.vq-drawer-scrim { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.45); display: flex; justify-content: flex-end; z-index: 50; }
+.vq-drawer {
+  width: min(500px, 100%);
+  height: 100%;
+  overflow-y: auto;
+  background: var(--panel);
+  border-left: 1px solid var(--border);
+  padding: 28px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+.vq-drawer .close { position: absolute; top: 24px; right: 24px; width: 40px; font-size: 20px; }
+.vq-drawer .head { display: flex; flex-direction: column; gap: 4px; padding-right: 56px; }
+.vq-drawer .client { font-size: 22px; font-weight: 800; color: var(--heading); }
+.vq-drawer section { display: flex; flex-direction: column; gap: 10px; }
+.vq-drawer .dims { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.vq-drawer .dim { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.vq-drawer .why { font-size: 14.5px; line-height: 1.55; color: var(--soft); }
+.vq-drawer .trace { margin: 0; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 8px; font-size: 13px; }
+.vq-drawer .trace div { display: flex; justify-content: space-between; gap: 12px; }
+.vq-drawer .trace dt { color: var(--muted); }
+.vq-drawer .trace dd { margin: 0; font-family: var(--mono); color: var(--heading); }
+.vq-drawer .steps { list-style: none; margin: 0; padding: 0; display: flex; gap: 6px; }
+.vq-drawer .steps li { flex: 1; border: 1px solid var(--border); border-radius: 8px; padding: 7px 8px; display: flex; flex-direction: column; gap: 2px; font-size: 12.5px; font-weight: 700; color: var(--muted); }
+.vq-drawer .steps li.done { color: var(--heading); border-color: var(--heading); }
+.vq-drawer .steps li.now { background: #97f201; border-color: #97f201; color: #1c1c1c; }
+.vq-drawer .steps li.now .vq-code { color: #1c1c1c; }
+.vq-drawer .foot { margin-top: auto; font-size: 12.5px; line-height: 1.5; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; }
+@media (max-width: 640px) {
+  .vq-drawer { padding: 20px 16px; }
+  .vq-drawer .dims { grid-template-columns: 1fr; }
+  .vq-drawer .steps { flex-wrap: wrap; }
+}

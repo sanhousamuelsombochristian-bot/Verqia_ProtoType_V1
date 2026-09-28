@@ -1,0 +1,4 @@
+.vq-client-line { display: flex; align-items: center; gap: 14px; border-top: 1px solid var(--line); padding-top: 12px; flex-wrap: wrap; }
+.vq-client-line .grow { flex: 1; min-width: 160px; }
+.vq-client-line .strong { font-weight: 700; color: var(--heading); }
+.vq-client-line .amount { width: 110px; text-align: right; color: var(--muted2); }

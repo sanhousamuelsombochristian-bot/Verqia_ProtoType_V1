@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>VERQIA PILOT — Profil</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap">
+<style>
+:focus-visible{outline:3px solid #97F201;outline-offset:2px;border-radius:6px}.vq-skip{position:absolute;left:-9999px;top:12px;z-index:50}.vq-skip:focus{left:16px !important;background:#97F201;color:#1C1C1C;padding:10px 14px;border-radius:8px;font-weight:800;text-decoration:none}
+body{margin:0;font-family:'Inter',Arial,sans-serif}
+input::placeholder,textarea::placeholder{color:#7A7A7A}
+</style>
+</helmet>
+<div style="flex-shrink: 0; width: 1440px; height: 1000px; box-sizing: border-box; position: relative; display: flex; background: {{ t.bg }}; color: {{ t.text }}; font-family: 'Inter', Arial, sans-serif; overflow: hidden">
+<a href="#contenu" class="vq-skip" style="position: absolute; left: -9999px; top: 12px; z-index: 50">Aller au contenu</a>
+<dc-import name="AppSidebar" active="profil" mode="{{ mode }}" height="1000" hint-size="260px,1000px"></dc-import>
+<div style="flex-grow: 1; display: flex; flex-direction: column; min-width: 0">
+<div style="height: 72px; flex-shrink: 0; box-sizing: border-box; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid {{ t.line }}">
+<input type="search" aria-label="Rechercher un client ou une facture" placeholder="Rechercher un client, une facture…" style="flex-shrink: 0; width: 380px; height: 42px; box-sizing: border-box; padding: 0 16px; border-radius: 10px; border: 1px solid {{ t.border }}; background: {{ t.card }}; color: {{ t.heading }}; font-family: inherit; font-size: 15px">
+<div style="display: flex; align-items: center; gap: 14px">
+<div style="font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: {{ t.muted }}; border: 1px solid {{ t.border }}; border-radius: 999px; padding: 6px 12px">Prototype · données de démonstration</div>
+<a href="{{ lnkEv }}" aria-label="Notifications : voir les événements" style="flex-shrink: 0; width: 42px; height: 42px; border-radius: 10px; border: 1px solid {{ t.border }}; background: {{ t.card }}; color: {{ t.text }}; display: flex; align-items: center; justify-content: center; cursor: pointer; text-decoration: none; box-sizing: border-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></a>
+</div>
+</div>
+<div id="contenu" tabindex="-1" style="flex-grow: 1; box-sizing: border-box; padding: 26px 32px 32px; display: flex; flex-direction: column; gap: 22px; min-height: 0; outline: none">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px"><div style="display: flex; flex-direction: column; gap: 6px"><h1 style="margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.8px; color: {{ t.heading }}">Profil</h1><div style="font-size: 15px; color: {{ t.muted }}">Votre compte, votre sécurité et vos préférences.</div></div></div>
+<div style="display: flex; gap: 20px; align-items: flex-start"><div style="background: {{ t.card }}; border: 1px solid {{ t.border }}; border-radius: 16px; padding: 22px 24px; display: flex; flex-direction: column; gap: 12px; min-width: 0; flex-grow: 1; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px"><div style="font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: {{ t.accent }}">Identité</div><div style="font-size: 17px; font-weight: 700; color: {{ t.heading }}">Vos informations</div></div><div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px"><div style="display: flex; flex-direction: column; gap: 6px"><label style="font-size: 13px; font-weight: 600; color: {{ t.soft }}">Prénom</label><input type="text" value="[Prénom]" style="height: 44px; box-sizing: border-box; padding: 0 14px; border-radius: 10px; border: 1.5px solid {{ t.border }}; background: {{ t.input }}; color: {{ t.heading }}; font-family: inherit; font-size: 14.5px"></div><div style="display: flex; flex-direction: column; gap: 6px"><label style="font-size: 13px; font-weight: 600; color: {{ t.soft }}">Nom</label><input type="text" value="[Nom]" style="height: 44px; box-sizing: border-box; padding: 0 14px; border-radius: 10px; border: 1.5px solid {{ t.border }}; background: {{ t.input }}; color: {{ t.heading }}; font-family: inherit; font-size: 14.5px"></div><div style="display: flex; flex-direction: column; gap: 6px"><label style="font-size: 13px; font-weight: 600; color: {{ t.soft }}">E-mail professionnel</label><input type="text" value="[à compléter]" style="height: 44px; box-sizing: border-box; padding: 0 14px; border-radius: 10px; border: 1.5px solid {{ t.border }}; background: {{ t.input }}; color: {{ t.heading }}; font-family: inherit; font-size: 14.5px"></div><div style="display: flex; flex-direction: column; gap: 6px"><label style="font-size: 13px; font-weight: 600; color: {{ t.soft }}">Téléphone</label><input type="text" value="[à compléter]" style="height: 44px; box-sizing: border-box; padding: 0 14px; border-radius: 10px; border: 1.5px solid {{ t.border }}; background: {{ t.input }}; color: {{ t.heading }}; font-family: inherit; font-size: 14.5px"></div><div style="display: flex; flex-direction: column; gap: 6px"><label style="font-size: 13px; font-weight: 600; color: {{ t.soft }}">Organisation</label><input type="text" value="Mon entreprise" style="height: 44px; box-sizing: border-box; padding: 0 14px; border-radius: 10px; border: 1.5px solid {{ t.border }}; background: {{ t.input }}; color: {{ t.heading }}; font-family: inherit; font-size: 14.5px"></div><div style="display: flex; flex-direction: column; gap: 6px"><label style="font-size: 13px; font-weight: 600; color: {{ t.soft }}">Rôle</label><input type="text" value="[rôle à définir]" style="height: 44px; box-sizing: border-box; padding: 0 14px; border-radius: 10px; border: 1.5px solid {{ t.border }}; background: {{ t.input }}; color: {{ t.heading }}; font-family: inherit; font-size: 14.5px"></div></div><div style="font-size: 12.5px; color: {{ t.muted }}">Votre rôle détermine les actions que vous pouvez approuver ou overrider. Il est revérifié au moment de chaque exécution.</div><div><button type="button" style="height: 40px; padding: 0 16px; border-radius: 10px; border: none; background: #97F201; color: #1C1C1C; font-family: inherit; font-size: 14px; font-weight: 800; cursor: pointer">Enregistrer</button></div>
+</div><div style="flex-shrink: 0; width: 440px; flex-shrink: 0; display: flex; flex-direction: column; gap: 20px"><div style="background: {{ t.card }}; border: 1px solid {{ t.border }}; border-radius: 16px; padding: 22px 24px; display: flex; flex-direction: column; gap: 12px; min-width: 0">
+<div style="display: flex; flex-direction: column; gap: 4px"><div style="font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: {{ t.accent }}">Sécurité</div><div style="font-size: 17px; font-weight: 700; color: {{ t.heading }}">Connexion au compte</div></div><div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid {{ t.line }}; padding-top: 12px"><div><div style="font-size: 14.5px; font-weight: 600; color: {{ t.heading }}">Mot de passe</div><div style="font-size: 12.5px; color: {{ t.muted }}; margin-top: 2px">••••••••••</div></div><button type="button" style="height: 36px; padding: 0 12px; border-radius: 9px; border: 1.5px solid {{ t.border }}; background: transparent; color: {{ t.heading }}; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap">Modifier</button></div><sc-for list="{{ secu }}" as="r" hint-placeholder-count="1">
+<div style="display: flex; align-items: center; gap: 16px; padding: 12px 0; border-top: 1px solid {{ t.line }}">
+<div style="flex-grow: 1"><div style="font-size: 14.5px; font-weight: 600; color: {{ t.heading }}">{{ r.label }}</div><div style="font-size: 12.5px; color: {{ t.muted }}; margin-top: 2px">{{ r.desc }}</div></div>
+<button type="button" aria-label="{{ r.label }}" aria-pressed="{{ r.on }}" onClick="{{ r.toggle }}" style="flex-shrink: 0; width: 52px; height: 30px; box-sizing: border-box; padding: 3px; border-radius: 999px; border: none; cursor: pointer; display: flex; justify-content: {{ r.knob }}; background: {{ r.track }}"><span style="flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; background: {{ t.knob }}"></span></button>
+</div>
+</sc-for>
+</div><div style="background: {{ t.card }}; border: 1px solid {{ t.border }}; border-radius: 16px; padding: 22px 24px; display: flex; flex-direction: column; gap: 12px; min-width: 0">
+<div style="display: flex; flex-direction: column; gap: 4px"><div style="font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: {{ t.accent }}">Préférences</div><div style="font-size: 17px; font-weight: 700; color: {{ t.heading }}">Affichage et notifications</div></div><div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid {{ t.line }}; padding-top: 12px"><div style="font-size: 14.5px; font-weight: 600; color: {{ t.heading }}">Apparence</div><div style="display: flex; gap: 3px; background: {{ t.bg }}; border: 1px solid {{ t.border }}; border-radius: 9px; padding: 3px"><a href="{{ l.sombre }}" style="height: 30px; padding: 0 12px; display: inline-flex; align-items: center; border-radius: 7px; font-size: 12.5px; font-weight: 700; text-decoration: none; background: {{ ap.sBg }}; color: {{ ap.sC }}">Sombre</a><a href="{{ l.clair }}" style="height: 30px; padding: 0 12px; display: inline-flex; align-items: center; border-radius: 7px; font-size: 12.5px; font-weight: 700; text-decoration: none; background: {{ ap.cBg }}; color: {{ ap.cC }}">Clair</a></div></div>
+<div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid {{ t.line }}; padding: 12px 0 0"><div style="font-size: 14.5px; font-weight: 600; color: {{ t.heading }}">Langue · devise</div><div style="font-size: 14px; color: {{ t.muted2 }}">Français · FCFA</div></div><sc-for list="{{ notifs }}" as="r" hint-placeholder-count="4">
+<div style="display: flex; align-items: center; gap: 16px; padding: 12px 0; border-top: 1px solid {{ t.line }}">
+<div style="flex-grow: 1"><div style="font-size: 14.5px; font-weight: 600; color: {{ t.heading }}">{{ r.label }}</div><div style="font-size: 12.5px; color: {{ t.muted }}; margin-top: 2px">{{ r.desc }}</div></div>
+<button type="button" aria-label="{{ r.label }}" aria-pressed="{{ r.on }}" onClick="{{ r.toggle }}" style="flex-shrink: 0; width: 52px; height: 30px; box-sizing: border-box; padding: 3px; border-radius: 999px; border: none; cursor: pointer; display: flex; justify-content: {{ r.knob }}; background: {{ r.track }}"><span style="flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; background: {{ t.knob }}"></span></button>
+</div>
+</sc-for>
+</div></div></div>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mode": {"editor": "enum", "options": ["sombre", "clair"], "default": "sombre"}, "$preview": {"width": 1440, "height": 1000}}'>
+class Component extends DCLogic {
+renderVals() {
+const C = this.props.mode === 'clair';
+const t = C ? { bg: '#FFFFFF', bg2: '#F5F5F3', card: '#F7F7F5', card2: '#EDEDEA', panel: '#FFFFFF', border: '#DDDDD8', line: '#E9E9E5', text: '#2A2A2A', heading: '#1C1C1C', soft: '#333333', muted2: '#4A4A4A', muted: '#666666', accent: '#3E6B00', a12: 'rgba(151,242,1,0.24)', aBorder: '#7FCC00', red: '#C8372D', redText: '#B3261E', redBg: 'rgba(200,55,45,0.08)', amber: '#D99A1E', amberText: '#8A5A00', amberBg: 'rgba(217,154,30,0.10)', mid: '#8A8A85', low: '#CFCFCA', area: 'rgba(28,28,28,0.06)', histLine: '#1C1C1C', segOn: '#1C1C1C', segOnText: '#FFFFFF', rowHi: 'rgba(151,242,1,0.10)', knob: '#FFFFFF', off: '#CFCFCA', tile: '#1C1C1C', input: '#FFFFFF' }
+: { bg: '#1C1C1C', bg2: '#161616', card: '#262626', card2: '#303030', panel: '#202020', border: '#3A3A3A', line: '#2E2E2E', text: '#F2F2F0', heading: '#FFFFFF', soft: '#D6D6D4', muted2: '#BDBDBB', muted: '#9A9A9A', accent: '#97F201', a12: 'rgba(151,242,1,0.12)', aBorder: '#97F201', red: '#FF6B5B', redText: '#FF8A7A', redBg: 'rgba(255,107,91,0.10)', amber: '#F2B84B', amberText: '#F2B84B', amberBg: 'rgba(242,184,75,0.10)', mid: '#9A9A9A', low: '#4A4A4A', area: 'rgba(242,242,240,0.06)', histLine: '#F2F2F0', segOn: '#3A3A3A', segOnText: '#FFFFFF', rowHi: 'rgba(151,242,1,0.06)', knob: '#1C1C1C', off: '#4A4A4A', tile: 'transparent', input: '#262626' };
+const s = this.state || {};
+const M = C ? 'clair' : 'sombre';
+const sfx = C ? 'Clair' : '';
+const link = (f) => f + sfx + '.dc.html';
+const seg = (on) => ({ bg: on ? t.segOn : 'transparent', color: on ? t.segOnText : t.muted });
+const sw = (on) => ({ knob: on ? 'flex-end' : 'flex-start', track: on ? '#97F201' : t.off });
+
+const riskSt = {
+'Critique': { rDot: t.red, rColor: t.redText },
+'Élevé': { rDot: t.amber, rColor: t.amberText },
+'Modéré': { rDot: t.mid, rColor: t.soft },
+'Faible': { rDot: t.low, rColor: t.muted },
+'—': { rDot: 'transparent', rColor: t.muted }
+};
+const prioSt = {
+'Urgente': { pBg: '#97F201', pColor: '#1C1C1C', pBorder: '1px solid #97F201' },
+'Haute': { pBg: t.a12, pColor: t.accent, pBorder: '1px solid ' + t.aBorder },
+'Moyenne': { pBg: 'transparent', pColor: t.text, pBorder: '1px solid ' + t.border },
+'Basse': { pBg: 'transparent', pColor: t.muted, pBorder: '1px dashed ' + t.border },
+'—': { pBg: 'transparent', pColor: t.muted, pBorder: '1px solid transparent' }
+};
+const OUT = {
+PROCEED: { oLabel: 'À exécuter', oCode: 'PROCEED', oBg: 'transparent', oColor: t.accent, oBorder: '1px solid ' + t.aBorder },
+APPROVAL: { oLabel: 'Approbation requise', oCode: 'PROCEED · requires_approval', oBg: t.amberBg, oColor: t.amberText, oBorder: '1px solid ' + t.amber },
+DEFER: { oLabel: 'Différée', oCode: 'DEFER', oBg: 'transparent', oColor: t.amberText, oBorder: '1px solid ' + t.amber },
+SUPPRESS: { oLabel: 'Supprimée', oCode: 'SUPPRESS', oBg: 'transparent', oColor: t.muted, oBorder: '1px solid ' + t.border },
+OVERRIDDEN: { oLabel: 'Override · à revalider', oCode: 'OVERRIDDEN', oBg: 'transparent', oColor: t.heading, oBorder: '1px solid ' + t.heading },
+NONE: { oLabel: 'Aucune action', oCode: '—', oBg: 'transparent', oColor: t.muted, oBorder: '1px dashed ' + t.border },
+PAID: { oLabel: 'Payée', oCode: '—', oBg: t.a12, oColor: t.accent, oBorder: '1px solid transparent' }
+};
+const STATE = { PROPOSED: 'Proposée', SCHEDULED: 'Planifiée', EXECUTING: 'En exécution', DONE: 'Terminée', CANCELLED: 'Annulée', SUPPRESSED: 'Supprimée', FAILED: 'Échouée', CLAIMED: 'Prise en charge', COMPLETED: 'Clôturée', RESCHEDULED: 'Replanifiée' };
+const DUE = {
+late: { dLabel: 'En retard', dColor: t.redText },
+near: { dLabel: 'Proche', dColor: t.amberText },
+future: { dLabel: 'À venir', dColor: t.muted2 },
+paid: { dLabel: 'Payée', dColor: t.accent }
+};
+
+const INV = [
+{ id: 'F-0142', cid: 'A', client: 'Distribution Exemple A', montant: '1 250 000', amt: 1250000, echeance: '16/09/2026', delay: '12 j de retard', due: 'late', rank: '01', prio: 'Urgente', risk: 'Élevé', level: 'L4', o: 'PROCEED', st: 'SCHEDULED', action: 'Relance WhatsApp · aujourd’hui', canal: 'WhatsApp', note: 'Relance WhatsApp planifiée aujourd’hui' },
+{ id: 'F-0143', cid: 'B', client: 'BTP Exemple B', montant: '2 100 000', amt: 2100000, echeance: '29/09/2026', delay: 'demain', due: 'near', rank: '02', prio: 'Haute', risk: 'Élevé', level: 'L2', o: 'PROCEED', st: 'PROPOSED', action: 'Rappel avant échéance · e-mail', canal: 'E-mail', note: 'Promesse de paiement au 29/09' },
+{ id: 'F-0144', cid: 'C', client: 'Cabinet Exemple C', montant: '780 000', amt: 780000, echeance: '23/09/2026', delay: '5 j de retard', due: 'late', rank: '03', prio: 'Haute', risk: 'Critique', level: 'L3', o: 'APPROVAL', st: 'PROPOSED', action: 'Appel manuel · en attente d’approbation', canal: 'Appel', note: 'Promesse rompue le 27/09' },
+{ id: 'F-0145', cid: 'D', client: 'Maintenance Exemple D', montant: '450 000', amt: 450000, echeance: '07/09/2026', delay: '21 j de retard', due: 'late', rank: '04', prio: 'Moyenne', risk: 'Modéré', level: 'L3', o: 'DEFER', st: 'PROPOSED', action: 'Relance différée jusqu’au 02/10/2026', canal: 'WhatsApp', note: 'Mise en attente · Négociation · portée Client' },
+{ id: 'F-0146', cid: 'E', client: 'Services Exemple E', montant: '960 000', amt: 960000, echeance: '02/10/2026', delay: 'dans 4 j', due: 'near', rank: '05', prio: 'Basse', risk: 'Faible', level: 'L1', o: 'SUPPRESS', st: 'SUPPRESSED', action: 'Rappel supprimé par le moteur', canal: 'E-mail', note: 'Code de suppression : [suppression_code]' },
+{ id: 'F-0147', cid: 'A', client: 'Distribution Exemple A', montant: '1 480 000', amt: 1480000, echeance: '22/10/2026', delay: 'dans 24 j', due: 'future', rank: '—', prio: '—', risk: 'Faible', level: 'L1', o: 'NONE', st: null, action: 'Aucune action retournée à ce jour', canal: '—', note: 'Aucune action retournée à ce jour' },
+{ id: 'F-0148', cid: 'F', client: 'Agence Exemple F', montant: '620 000', amt: 620000, echeance: '24/10/2026', delay: 'dans 26 j', due: 'future', rank: '06', prio: 'Basse', risk: 'Faible', level: 'L1', o: 'OVERRIDDEN', st: 'RESCHEDULED', action: 'Relance manuelle replanifiée', canal: 'Appel', note: 'Override accordé · revalidé à l’exécution' },
+{ id: 'F-0141', cid: 'C', client: 'Cabinet Exemple C', montant: '300 000', amt: 300000, echeance: '20/09/2026', delay: 'payée le 26/09', due: 'paid', rank: '—', prio: '—', risk: '—', level: '—', o: 'PAID', st: null, action: 'Encaissée le 26/09/2026', canal: '—', note: 'Encaissée le 26/09/2026', paidOn: '26/09/2026' },
+{ id: 'F-0140', cid: 'E', client: 'Services Exemple E', montant: '540 000', amt: 540000, echeance: '15/09/2026', delay: 'payée le 18/09', due: 'paid', rank: '—', prio: '—', risk: '—', level: '—', o: 'PAID', st: null, action: 'Encaissée le 18/09/2026', canal: '—', note: 'Encaissée le 18/09/2026', paidOn: '18/09/2026' },
+{ id: 'F-0139', cid: 'B', client: 'BTP Exemple B', montant: '1 900 000', amt: 1900000, echeance: '10/09/2026', delay: 'payée le 12/09', due: 'paid', rank: '—', prio: '—', risk: '—', level: '—', o: 'PAID', st: null, action: 'Encaissée le 12/09/2026', canal: '—', note: 'Encaissée le 12/09/2026', paidOn: '12/09/2026' }
+];
+const CLI = [
+{ cid: 'A', rank: '01', name: 'Distribution Exemple A', open: 2, encours: '2 730 000', amt: 2730000, next: '22/10/2026', prio: 'Urgente', risk: 'Élevé', level: 'L4' },
+{ cid: 'B', rank: '02', name: 'BTP Exemple B', open: 1, encours: '2 100 000', amt: 2100000, next: '29/09/2026', prio: 'Haute', risk: 'Élevé', level: 'L2' },
+{ cid: 'C', rank: '03', name: 'Cabinet Exemple C', open: 1, encours: '780 000', amt: 780000, next: 'échue le 23/09', prio: 'Haute', risk: 'Critique', level: 'L3' },
+{ cid: 'D', rank: '04', name: 'Maintenance Exemple D', open: 1, encours: '450 000', amt: 450000, next: 'échue le 07/09', prio: 'Moyenne', risk: 'Modéré', level: 'L3' },
+{ cid: 'E', rank: '05', name: 'Services Exemple E', open: 1, encours: '960 000', amt: 960000, next: '02/10/2026', prio: 'Basse', risk: 'Faible', level: 'L1' },
+{ cid: 'F', rank: '06', name: 'Agence Exemple F', open: 1, encours: '620 000', amt: 620000, next: '24/10/2026', prio: 'Basse', risk: 'Faible', level: 'L1' }
+];
+const EVT = [
+{ cat: 'decision', title: 'Approbation requise', detail: 'F-0144 · Cabinet Exemple C · appel manuel', date: '28/09 · 09:12', dot: t.amber },
+{ cat: 'decision', title: 'Action supprimée', detail: 'F-0146 · Services Exemple E · [suppression_code]', date: '28/09 · 08:40', dot: t.muted },
+{ cat: 'action', title: 'Relance planifiée', detail: 'F-0142 · Distribution Exemple A · WhatsApp', date: '28/09 · 08:30', dot: '#97F201' },
+{ cat: 'action', title: 'Rappel proposé', detail: 'F-0143 · BTP Exemple B · e-mail', date: '28/09 · 08:30', dot: t.mid },
+{ cat: 'decision', title: 'Action différée', detail: 'F-0145 · mise en attente Négociation jusqu’au 02/10', date: '27/09 · 17:05', dot: t.amber },
+{ cat: 'hold', title: 'Mise en attente placée', detail: 'Maintenance Exemple D · Négociation · portée Client', date: '27/09 · 17:00', dot: t.amber },
+{ cat: 'promesse', title: 'Promesse rompue', detail: 'Cabinet Exemple C · F-0144', date: '27/09 · 10:00', dot: t.red },
+{ cat: 'paiement', title: 'Paiement reçu', detail: 'F-0141 · Cabinet Exemple C · 300 000 FCFA', date: '26/09 · 15:22', dot: '#97F201' },
+{ cat: 'decision', title: 'Override accordé', detail: 'F-0148 · Agence Exemple F · à revalider à l’exécution', date: '26/09 · 10:30', dot: t.heading },
+{ cat: 'action', title: 'Relance manuelle replanifiée', detail: 'F-0148 · Agence Exemple F', date: '26/09 · 10:31', dot: t.mid },
+{ cat: 'promesse', title: 'Promesse créée', detail: 'BTP Exemple B · paiement annoncé le 29/09', date: '25/09 · 11:48', dot: '#97F201' },
+{ cat: 'facture', title: 'Facture passée en retard', detail: 'F-0144 · Cabinet Exemple C', date: '24/09 · 00:00', dot: t.red },
+{ cat: 'paiement', title: 'Paiement reçu', detail: 'F-0140 · Services Exemple E · 540 000 FCFA', date: '18/09 · 09:40', dot: '#97F201' },
+{ cat: 'facture', title: 'Facture passée en retard', detail: 'F-0142 · Distribution Exemple A', date: '17/09 · 00:00', dot: t.red },
+{ cat: 'paiement', title: 'Paiement reçu', detail: 'F-0139 · BTP Exemple B · 1 900 000 FCFA', date: '12/09 · 16:05', dot: '#97F201' },
+{ cat: 'facture', title: 'Facture passée en retard', detail: 'F-0145 · Maintenance Exemple D', date: '08/09 · 00:00', dot: t.red }
+];
+const deco = (x) => Object.assign({}, x, riskSt[x.risk] || riskSt['—'], prioSt[x.prio] || prioSt['—'], OUT[x.o] || OUT.NONE, DUE[x.due] || DUE.future, {
+stateLabel: x.st ? STATE[x.st] : '—', stateCode: x.st || '', rankTxt: x.rank === '—' ? '—' : '#' + x.rank, canOpen: x.o !== 'PAID', hasLevel: x.level !== '—'
+});
+const decoC = (c) => Object.assign({}, c, riskSt[c.risk], prioSt[c.prio], { hasLevel: true });
+
+const mkTabs = (defs, cur, key) => defs.map((d) => ({ label: d.l, count: d.n === undefined ? '' : d.n, on: cur === d.k, pick: () => { const o = {}; o[key] = d.k; this.setState(o); }, color: cur === d.k ? t.heading : t.muted, line: cur === d.k ? '3px solid #97F201' : '3px solid transparent' }));
+
+const mkToggles = (key, defs, init) => { const cur = s[key] || init; return defs.map((r) => Object.assign({ label: r.label, desc: r.desc, on: !!cur[r.k], toggle: () => { const n = Object.assign({}, cur); n[r.k] = !cur[r.k]; const o = {}; o[key] = n; this.setState(o); } }, sw(!!cur[r.k]))); };
+
+const secu = mkToggles('secu', [{ k: 'mfa', label: 'Double authentification', desc: 'Un code à usage unique à chaque connexion' }], { mfa: false });
+const notifs = mkToggles('notifs', [
+{ k: 'appro', label: 'Approbation requise', desc: 'Quand une action attend votre décision' },
+{ k: 'promesse', label: 'Promesse rompue', desc: 'Quand une date promise est dépassée' },
+{ k: 'paiement', label: 'Paiement reçu', desc: 'À chaque encaissement rapproché' },
+{ k: 'hold', label: 'Fin de mise en attente', desc: 'À la date de réessai prévue' }
+], { appro: true, promesse: true, paiement: true, hold: false });
+const ap = { sBg: C ? 'transparent' : t.segOn, sC: C ? t.muted : t.segOnText, cBg: C ? t.segOn : 'transparent', cC: C ? t.segOnText : t.muted };
+return { lnkEv: link('Evenements'),  t: t, mode: M, secu: secu, notifs: notifs, ap: ap, l: { sombre: 'Profil.dc.html', clair: 'ProfilClair.dc.html' } };
+}
+}
+</script>
+</body>
+</html>

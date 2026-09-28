@@ -1,0 +1,13 @@
+.vq-magic { border: 1px solid var(--border); border-radius: 20px; padding: 24px; background: var(--card); display: flex; flex-direction: column; gap: 16px; }
+.vq-magic .chaos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.vq-magic .chaos .vq-tile { transform: rotate(-0.6deg); font-size: 13.5px; color: var(--muted2); }
+.vq-magic .chaos .vq-tile:nth-child(even) { transform: rotate(0.8deg); }
+.vq-magic .chaos .questions { grid-column: 1 / -1; display: flex; gap: 10px; flex-wrap: wrap; }
+.vq-magic .chaos > button { grid-column: 1 / -1; justify-self: start; }
+.vq-magic .clarity { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.vq-magic .clarity > .vq-grid, .vq-magic .clarity > .vq-event { width: 100%; }
+.vq-plans { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.vq-plans .hl { background: var(--a12); border-color: var(--a-border); }
+.vq-plans .price { font-size: 24px; font-weight: 800; color: var(--heading); margin: 8px 0; }
+@media (max-width: 1100px) { .vq-plans { grid-template-columns: repeat(2, minmax(0, 1fr)); } .vq-magic .chaos { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .vq-plans, .vq-magic .chaos { grid-template-columns: 1fr; } }

@@ -1,0 +1,11 @@
+.vq-task { border: 1px solid var(--border); border-radius: 14px; padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; background: var(--card); }
+.vq-task.blocked { border: 1.5px dashed var(--amber); flex-direction: row; justify-content: space-between; align-items: center; gap: 16px; }
+.vq-task .top { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
+.vq-task .title { font-size: 18px; font-weight: 800; color: var(--heading); margin: 6px 0 4px; }
+.vq-task .path { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; flex-wrap: wrap; }
+.vq-task .path li { border: 1px solid var(--border); border-radius: 8px; padding: 7px 12px; display: flex; flex-direction: column; gap: 2px; font-size: 13px; font-weight: 700; color: var(--muted); }
+.vq-task .path li.done { color: var(--heading); border-color: var(--heading); }
+.vq-task .path li.now { background: #97f201; border-color: #97f201; color: #1c1c1c; }
+.vq-task .path li.now .vq-code { color: #1c1c1c; }
+.vq-task .actions { display: flex; gap: 10px; align-items: center; }
+@media (max-width: 640px) { .vq-task.blocked { flex-direction: column; align-items: flex-start; } }

@@ -1,0 +1,343 @@
+{
+  "groups": {
+    "dim": "Dimensions",
+    "dec": "Décision du moteur",
+    "cyc": "Cycle de l’action",
+    "hold": "Mise en attente",
+    "task": "Tâches manuelles",
+    "fin": "Finance & factures"
+  },
+  "entries": [
+    {
+      "group": "dim",
+      "term": "Risque",
+      "code": "risk_level",
+      "definition": "Signal d’analyse : Faible, Modéré, Élevé, Critique. Ne fixe ni la priorité ni le niveau de recouvrement.",
+      "avoid": "Urgence, gravité"
+    },
+    {
+      "group": "dim",
+      "term": "Priorité",
+      "code": "priority_level",
+      "definition": "Importance de l’action calculée par le moteur : Basse, Moyenne, Haute, Urgente.",
+      "avoid": "Importance du client"
+    },
+    {
+      "group": "dim",
+      "term": "Rang",
+      "code": "rank_score",
+      "definition": "Position dans « À traiter maintenant ». Tri : rang, puis priorité, puis échéance — jamais le montant.",
+      "avoid": "Classement par montant"
+    },
+    {
+      "group": "dim",
+      "term": "Niveau de recouvrement",
+      "code": "collection_level",
+      "definition": "Palier de recouvrement L1, L2… Plancher L3 pour une facture en retard ; pas de régression.",
+      "avoid": "Niveau de risque, étape"
+    },
+    {
+      "group": "dec",
+      "term": "Décision",
+      "code": "RuleDecision",
+      "definition": "Réponse du Rule Engine pour une action. Le Rule Engine est l’autorité ; l’interface ne recalcule rien.",
+      "avoid": "Recommandation, suggestion"
+    },
+    {
+      "group": "dec",
+      "term": "À exécuter",
+      "code": "PROCEED",
+      "definition": "L’action peut suivre son cycle (Proposée, Planifiée…).",
+      "avoid": "Validée, OK"
+    },
+    {
+      "group": "dec",
+      "term": "Différée",
+      "code": "DEFER",
+      "definition": "L’action attend, jusqu’à la date de réessai prévue.",
+      "avoid": "En pause, bloquée"
+    },
+    {
+      "group": "dec",
+      "term": "Supprimée",
+      "code": "SUPPRESS",
+      "definition": "Le moteur décide de ne pas exécuter l’action, pour une raison métier portée par un code.",
+      "avoid": "Erreur, échec"
+    },
+    {
+      "group": "dec",
+      "term": "Override · à revalider",
+      "code": "OVERRIDDEN",
+      "definition": "Une exception a été overridée ; l’override est revérifié à l’exécution.",
+      "avoid": "Forcée, validée"
+    },
+    {
+      "group": "dec",
+      "term": "Approbation requise",
+      "code": "requires_approval = true",
+      "definition": "Aucune exécution automatique : un utilisateur habilité doit décider.",
+      "avoid": "En attente"
+    },
+    {
+      "group": "dec",
+      "term": "Exception principale",
+      "code": "primary_exception",
+      "definition": "Exception retenue en premier par le moteur pour expliquer la décision.",
+      "avoid": ""
+    },
+    {
+      "group": "dec",
+      "term": "Trace des exceptions",
+      "code": "exceptions_trace",
+      "definition": "Liste des exceptions évaluées pour la décision.",
+      "avoid": ""
+    },
+    {
+      "group": "dec",
+      "term": "Code de suppression",
+      "code": "suppression_code",
+      "definition": "Raison métier d’une suppression, avec son explication.",
+      "avoid": "Code d’erreur"
+    },
+    {
+      "group": "dec",
+      "term": "Réessai prévu",
+      "code": "retry_at",
+      "definition": "Date à laquelle une action différée sera réévaluée.",
+      "avoid": "Relance automatique"
+    },
+    {
+      "group": "dec",
+      "term": "Règle de référence",
+      "code": "[rule_ref]",
+      "definition": "Règle ayant produit la décision — identifiant à définir.",
+      "avoid": ""
+    },
+    {
+      "group": "cyc",
+      "term": "Proposée",
+      "code": "PROPOSED",
+      "definition": "Action créée par la décision, pas encore planifiée.",
+      "avoid": "Suggérée"
+    },
+    {
+      "group": "cyc",
+      "term": "Planifiée",
+      "code": "SCHEDULED",
+      "definition": "Action programmée à une date.",
+      "avoid": "Envoyée"
+    },
+    {
+      "group": "cyc",
+      "term": "En exécution",
+      "code": "EXECUTING",
+      "definition": "Action en cours d’exécution.",
+      "avoid": ""
+    },
+    {
+      "group": "cyc",
+      "term": "Terminée",
+      "code": "DONE",
+      "definition": "Action exécutée.",
+      "avoid": "Réussie, payée"
+    },
+    {
+      "group": "cyc",
+      "term": "Annulée",
+      "code": "CANCELLED",
+      "definition": "Action arrêtée avant exécution.",
+      "avoid": "Supprimée"
+    },
+    {
+      "group": "cyc",
+      "term": "Supprimée",
+      "code": "SUPPRESSED",
+      "definition": "Action supprimée par décision du moteur.",
+      "avoid": "Annulée, échouée"
+    },
+    {
+      "group": "cyc",
+      "term": "Échouée",
+      "code": "FAILED",
+      "definition": "Exécution en échec technique.",
+      "avoid": "Supprimée"
+    },
+    {
+      "group": "cyc",
+      "term": "Prise en charge",
+      "code": "CLAIMED",
+      "definition": "Tâche manuelle attribuée à un utilisateur.",
+      "avoid": "Assignée, en cours"
+    },
+    {
+      "group": "cyc",
+      "term": "Clôturée",
+      "code": "COMPLETED",
+      "definition": "Tâche manuelle terminée par l’utilisateur.",
+      "avoid": "Terminée (DONE)"
+    },
+    {
+      "group": "cyc",
+      "term": "Replanifiée",
+      "code": "RESCHEDULED",
+      "definition": "Tâche manuelle reportée à une nouvelle date.",
+      "avoid": "Différée"
+    },
+    {
+      "group": "hold",
+      "term": "Mise en attente",
+      "code": "hold",
+      "definition": "Blocage temporaire qui diffère les actions concernées.",
+      "avoid": "Pause, gel"
+    },
+    {
+      "group": "hold",
+      "term": "Portée · Facture / Client / Organisation",
+      "code": "INVOICE · CUSTOMER · ORGANIZATION",
+      "definition": "Ce que la mise en attente couvre.",
+      "avoid": ""
+    },
+    {
+      "group": "hold",
+      "term": "Suspension manuelle",
+      "code": "MANUAL_SUSPENSION",
+      "definition": "Mise en attente décidée par un utilisateur.",
+      "avoid": ""
+    },
+    {
+      "group": "hold",
+      "term": "Juridique",
+      "code": "LEGAL",
+      "definition": "Mise en attente pour motif juridique.",
+      "avoid": ""
+    },
+    {
+      "group": "hold",
+      "term": "Négociation",
+      "code": "NEGOTIATION",
+      "definition": "Mise en attente pendant une négociation avec le client.",
+      "avoid": "Litige"
+    },
+    {
+      "group": "task",
+      "term": "Prendre en charge",
+      "code": "ClaimTask",
+      "definition": "Cas d’usage : s’attribuer une tâche manuelle.",
+      "avoid": "Accepter"
+    },
+    {
+      "group": "task",
+      "term": "Clôturer",
+      "code": "CompleteTask",
+      "definition": "Cas d’usage : terminer une tâche manuelle.",
+      "avoid": "Valider, fermer"
+    },
+    {
+      "group": "fin",
+      "term": "Créance",
+      "code": "",
+      "definition": "Montant dû par un client au titre d’une facture.",
+      "avoid": "Dette (côté client)"
+    },
+    {
+      "group": "fin",
+      "term": "Créances ouvertes",
+      "code": "",
+      "definition": "Total des factures non payées, à date.",
+      "avoid": "Impayés (si non échues)"
+    },
+    {
+      "group": "fin",
+      "term": "Encours",
+      "code": "",
+      "definition": "Créances ouvertes d’un client donné.",
+      "avoid": ""
+    },
+    {
+      "group": "fin",
+      "term": "Échéance",
+      "code": "",
+      "definition": "Date à laquelle une facture doit être payée.",
+      "avoid": "Deadline"
+    },
+    {
+      "group": "fin",
+      "term": "Statut d’échéance",
+      "code": "",
+      "definition": "À venir, Proche, En retard, Payée. Seuil de « Proche » : [à définir].",
+      "avoid": "Overdue, due"
+    },
+    {
+      "group": "fin",
+      "term": "Encaissement",
+      "code": "",
+      "definition": "Paiement reçu et rapproché d’une facture.",
+      "avoid": "Recette"
+    },
+    {
+      "group": "fin",
+      "term": "Promesse de paiement",
+      "code": "",
+      "definition": "Date de paiement annoncée par le client ; peut être tenue ou rompue.",
+      "avoid": "Engagement ferme"
+    },
+    {
+      "group": "fin",
+      "term": "Trésorerie prévisionnelle",
+      "code": "",
+      "definition": "Estimation du solde futur selon un scénario (pessimiste, base, optimiste).",
+      "avoid": "Solde garanti"
+    }
+  ],
+  "labels": {
+    "outcome": {
+      "PROCEED": "À exécuter",
+      "DEFER": "Différée",
+      "SUPPRESS": "Supprimée",
+      "OVERRIDDEN": "Override · à revalider",
+      "APPROVAL": "Approbation requise",
+      "NONE": "Aucune action",
+      "PAID": "Payée"
+    },
+    "actionState": {
+      "PROPOSED": "Proposée",
+      "SCHEDULED": "Planifiée",
+      "EXECUTING": "En exécution",
+      "DONE": "Terminée",
+      "CANCELLED": "Annulée",
+      "SUPPRESSED": "Supprimée",
+      "FAILED": "Échouée",
+      "CLAIMED": "Prise en charge",
+      "COMPLETED": "Clôturée",
+      "RESCHEDULED": "Replanifiée"
+    },
+    "dueStatus": {
+      "late": "En retard",
+      "near": "Proche",
+      "future": "À venir",
+      "paid": "Payée"
+    },
+    "holdType": {
+      "MANUAL_SUSPENSION": "Suspension manuelle",
+      "LEGAL": "Juridique",
+      "NEGOTIATION": "Négociation"
+    },
+    "holdScope": {
+      "INVOICE": "Facture",
+      "CUSTOMER": "Client",
+      "ORGANIZATION": "Organisation"
+    },
+    "risk": [
+      "Faible",
+      "Modéré",
+      "Élevé",
+      "Critique"
+    ],
+    "priority": [
+      "Basse",
+      "Moyenne",
+      "Haute",
+      "Urgente"
+    ]
+  }
+}

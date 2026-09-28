@@ -1,0 +1,87 @@
+/* ==========================================================================
+   VERQIA PILOT — design tokens
+   Mode sombre (défaut) : onyx + lime. Mode clair : blanc + onyx + lime.
+   Le lime #97F201 reste la couleur de marque ; en mode clair, le texte
+   d'accent passe à #3E6B00 pour rester lisible sur fond blanc.
+   ========================================================================== */
+:root,
+[data-theme='sombre'] {
+  --bg: #1c1c1c;
+  --bg2: #161616;
+  --card: #262626;
+  --card2: #303030;
+  --panel: #202020;
+  --border: #3a3a3a;
+  --line: #2e2e2e;
+  --text: #f2f2f0;
+  --heading: #ffffff;
+  --soft: #d6d6d4;
+  --muted2: #bdbdbb;
+  --muted: #9a9a9a;
+  --placeholder: #8c8c8c;
+  --accent: #97f201;
+  --a12: rgba(151, 242, 1, 0.12);
+  --a-border: #97f201;
+  --fill: #97f201;
+  --on-fill: #1c1c1c;
+  --red: #ff6b5b;
+  --red-text: #ff8a7a;
+  --red-bg: rgba(255, 107, 91, 0.1);
+  --amber: #f2b84b;
+  --amber-text: #f2b84b;
+  --amber-bg: rgba(242, 184, 75, 0.1);
+  --mid: #9a9a9a;
+  --low: #4a4a4a;
+  --row-hi: rgba(151, 242, 1, 0.06);
+  --seg-on: #3a3a3a;
+  --seg-on-text: #ffffff;
+  --knob: #1c1c1c;
+  --off: #4a4a4a;
+  --logo-tile: transparent;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
+
+[data-theme='clair'] {
+  --bg: #ffffff;
+  --bg2: #f5f5f3;
+  --card: #f7f7f5;
+  --card2: #ededea;
+  --panel: #ffffff;
+  --border: #ddddd8;
+  --line: #e9e9e5;
+  --text: #2a2a2a;
+  --heading: #1c1c1c;
+  --soft: #333333;
+  --muted2: #4a4a4a;
+  --muted: #666666;
+  --placeholder: #707070;
+  --accent: #3e6b00;
+  --a12: rgba(151, 242, 1, 0.24);
+  --a-border: #7fcc00;
+  --red: #c8372d;
+  --red-text: #b3261e;
+  --red-bg: rgba(200, 55, 45, 0.08);
+  --amber: #d99a1e;
+  --amber-text: #8a5a00;
+  --amber-bg: rgba(217, 154, 30, 0.1);
+  --mid: #8a8a85;
+  --low: #cfcfca;
+  --row-hi: rgba(151, 242, 1, 0.1);
+  --seg-on: #1c1c1c;
+  --seg-on-text: #ffffff;
+  --knob: #ffffff;
+  --off: #cfcfca;
+  --logo-tile: #1c1c1c; /* le logo lime se pose toujours sur fond sombre */
+  --shadow: 0 20px 50px rgba(28, 28, 28, 0.12);
+  color-scheme: light;
+}
+
+:root {
+  --font: 'Inter', Arial, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --sidebar-w: 260px;
+}

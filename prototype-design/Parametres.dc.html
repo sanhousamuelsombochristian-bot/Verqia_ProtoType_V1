@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>VERQIA PILOT — Paramètres</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<style>
+:focus-visible{outline:3px solid #97F201;outline-offset:2px;border-radius:6px}.vq-skip{position:absolute;left:-9999px;top:12px;z-index:50}.vq-skip:focus{left:16px !important;background:#97F201;color:#1C1C1C;padding:10px 14px;border-radius:8px;font-weight:800;text-decoration:none}
+body{margin:0;font-family:'Inter',Arial,sans-serif}
+input::placeholder{color:#7A7A7A}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1000px; box-sizing: border-box; display: flex; background: {{ t.bg }}; color: {{ t.text }}; font-family: 'Inter', Arial, sans-serif; overflow: hidden">
+<dc-import name="AppSidebar" active="parametres" mode="{{ mode }}" hint-size="260px,1000px"></dc-import>
+<div style="flex-grow: 1; box-sizing: border-box; padding: 36px 40px; display: flex; flex-direction: column; gap: 24px; min-width: 0">
+<div style="display: flex; flex-direction: column; gap: 6px"><h1 style="margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.8px; color: {{ t.heading }}">Paramètres</h1><div style="font-size: 16px; color: {{ t.muted }}">Configurez votre entreprise, vos relances et vos canaux.</div></div>
+<div role="tablist" aria-label="Sections des paramètres" style="display: flex; gap: 4px; border-bottom: 1px solid {{ t.border }}">
+<sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="4">
+<button type="button" role="tab" aria-selected="{{ tb.active }}" onClick="{{ tb.pick }}" style="height: 48px; padding: 0 18px; border: none; background: transparent; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer; color: {{ tb.color }}; border-bottom: {{ tb.line }}">{{ tb.label }}</button>
+</sc-for>
+</div>
+
+<sc-if value="{{ isEntreprise }}" hint-placeholder-val="{{ true }}">
+<div style="width: 820px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px">
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="rs" style="font-size: 14px; font-weight: 600; color: {{ t.soft }}">Raison sociale</label><input id="rs" type="text" placeholder="Nom de l'entreprise" style="height: 50px; box-sizing: border-box; padding: 0 16px; border-radius: 10px; border: 1.5px solid {{ t.border }}; background: {{ t.input }}; color: {{ t.heading }}; font-family: inherit; font-size: 16px"></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="sect" style="font-size: 14px; font-weight: 600; color: {{ t.soft }}">Secteur</label><select id="sect" style="height: 50px; box-sizing: border-box; padding: 0 12px; border-radius: 10px; border: 1.5px solid {{ t.border }}; background: {{ t.input }}; color: {{ t.heading }}; font-family: inherit; font-size: 16px"><option>Distribution / grossiste</option><option>Services B2B</option><option>BTP / fournisseur</option><option>Maintenance / location</option><option>Agence / cabinet</option></select></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="adr" style="font-size: 14px; font-weight: 600; color: {{ t.soft }}">Adresse</label><input id="adr" type="text" placeholder="Ville, quartier" style="height: 50px; box-sizing: border-box; padding: 0 16px; border-radius: 10px; border: 1.5px solid {{ t.border }}; background: {{ t.input }}; color: {{ t.heading }}; font-family: inherit; font-size: 16px"></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="dev" style="font-size: 14px; font-weight: 600; color: {{ t.soft }}">Devise</label><select id="dev" style="height: 50px; box-sizing: border-box; padding: 0 12px; border-radius: 10px; border: 1.5px solid {{ t.border }}; background: {{ t.input }}; color: {{ t.heading }}; font-family: inherit; font-size: 16px"><option>FCFA (XOF)</option></select></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="ctc" style="font-size: 14px; font-weight: 600; color: {{ t.soft }}">E-mail de contact</label><input id="ctc" type="email" placeholder="contact@entreprise.ci" style="height: 50px; box-sizing: border-box; padding: 0 16px; border-radius: 10px; border: 1.5px solid {{ t.border }}; background: {{ t.input }}; color: {{ t.heading }}; font-family: inherit; font-size: 16px"></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="wa" style="font-size: 14px; font-weight: 600; color: {{ t.soft }}">Numéro WhatsApp</label><input id="wa" type="tel" placeholder="+225 …" style="height: 50px; box-sizing: border-box; padding: 0 16px; border-radius: 10px; border: 1.5px solid {{ t.border }}; background: {{ t.input }}; color: {{ t.heading }}; font-family: inherit; font-size: 16px"></div>
+<button type="button" style="justify-self: start; height: 48px; padding: 0 24px; border-radius: 10px; border: none; background: #97F201; color: #1C1C1C; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer">Enregistrer</button>
+</div>
+</sc-if>
+
+<sc-if value="{{ isRelances }}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; gap: 24px">
+<div style="width: 560px; background: {{ t.card }}; border: 1px solid {{ t.border }}; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 17px; font-weight: 700; color: {{ t.heading }}; margin-bottom: 10px">Calendrier de relance</div>
+<sc-for list="{{ rules }}" as="r" hint-placeholder-count="5">
+<div style="display: flex; align-items: center; gap: 16px; padding: 14px 0; border-top: 1px solid {{ t.line }}">
+<div style="flex-grow: 1"><div style="font-size: 15px; font-weight: 600; color: {{ t.heading }}">{{ r.label }}</div><div style="font-size: 13px; color: {{ t.muted }}; margin-top: 2px">{{ r.desc }}</div></div>
+<button type="button" aria-label="{{ r.label }}" aria-pressed="{{ r.on }}" onClick="{{ r.toggle }}" style="width: 52px; height: 30px; box-sizing: border-box; padding: 3px; border-radius: 999px; border: none; cursor: pointer; display: flex; justify-content: {{ r.knob }}; background: {{ r.track }}"><span style="width: 24px; height: 24px; border-radius: 50%; background: {{ t.knob }}"></span></button>
+</div>
+</sc-for>
+</div>
+<div style="flex-grow: 1; background: {{ t.card }}; border: 1px solid {{ t.border }}; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<label for="tpl" style="font-size: 17px; font-weight: 700; color: {{ t.heading }}">Modèle de message</label>
+<textarea id="tpl" rows="6" style="box-sizing: border-box; padding: 14px 16px; border-radius: 10px; border: 1.5px solid {{ t.border }}; background: {{ t.bg }}; color: {{ t.heading }}; font-family: inherit; font-size: 15px; line-height: 1.55; resize: none">Bonjour {client}, nous vous rappelons que la facture {numero} d'un montant de {montant} FCFA arrive à échéance le {date}. Merci de votre confiance.</textarea>
+<div style="display: flex; gap: 8px; flex-wrap: wrap; font-size: 13px"><span style="color: {{ t.muted }}">Variables :</span><span style="color: {{ t.accent }}; border: 1px solid {{ t.aBorder }}; border-radius: 6px; padding: 2px 8px">{client}</span><span style="color: {{ t.accent }}; border: 1px solid {{ t.aBorder }}; border-radius: 6px; padding: 2px 8px">{numero}</span><span style="color: {{ t.accent }}; border: 1px solid {{ t.aBorder }}; border-radius: 6px; padding: 2px 8px">{montant}</span><span style="color: {{ t.accent }}; border: 1px solid {{ t.aBorder }}; border-radius: 6px; padding: 2px 8px">{date}</span></div>
+<div style="font-size: 14px; line-height: 1.5; color: {{ t.muted }}">Chaque relance reste soumise à la décision du Rule Engine (À exécuter, Différée, Supprimée) et est enregistrée dans l'historique du client.</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isCanaux }}" hint-placeholder-val="{{ false }}">
+<div style="width: 720px; display: flex; flex-direction: column; gap: 14px">
+<sc-for list="{{ channels }}" as="c" hint-placeholder-count="3">
+<div style="display: flex; align-items: center; gap: 16px; background: {{ t.card }}; border: 1px solid {{ t.border }}; border-radius: 14px; padding: 20px 24px">
+<div style="flex-grow: 1"><div style="font-size: 16px; font-weight: 700; color: {{ t.heading }}">{{ c.label }}</div><div style="font-size: 14px; color: {{ t.muted }}; margin-top: 4px">{{ c.desc }}</div></div>
+<button type="button" aria-label="{{ c.label }}" aria-pressed="{{ c.on }}" onClick="{{ c.toggle }}" style="width: 52px; height: 30px; box-sizing: border-box; padding: 3px; border-radius: 999px; border: none; cursor: pointer; display: flex; justify-content: {{ c.knob }}; background: {{ c.track }}"><span style="width: 24px; height: 24px; border-radius: 50%; background: {{ t.knob }}"></span></button>
+</div>
+</sc-for>
+<div style="display: flex; align-items: center; gap: 16px; border: 1.5px dashed {{ t.muted }}; border-radius: 14px; padding: 20px 24px"><div style="flex-grow: 1"><div style="font-size: 16px; font-weight: 700; color: {{ t.text }}">Moyens de paiement</div><div style="font-size: 14px; color: {{ t.muted }}; margin-top: 4px">Connexion progressive aux moyens de paiement disponibles</div></div><div style="font-size: 13px; font-weight: 700; color: {{ t.muted }}">À venir</div></div>
+<div style="font-size: 14px; line-height: 1.5; color: {{ t.muted }}">Communications autorisées uniquement, utilisées de manière structurée et conforme.</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isAbonnement }}" hint-placeholder-val="{{ false }}">
+<div style="width: 720px; display: flex; flex-direction: column; gap: 16px">
+<div style="background: {{ t.card }}; border: 2px solid {{ t.aBorder }}; border-radius: 16px; padding: 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 6px"><div style="font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: {{ t.accent }}">Offre actuelle</div><div style="font-size: 26px; font-weight: 800; color: {{ t.heading }}">Pilote</div><div style="font-size: 16px; color: {{ t.muted2 }}">10 000 – 15 000 FCFA / mois · tarif indicatif</div></div>
+<a href="{{ l.tarifs }}" style="height: 46px; padding: 0 20px; display: inline-flex; align-items: center; border-radius: 10px; border: 1.5px solid {{ t.border }}; color: {{ t.text }}; font-size: 15px; font-weight: 600; text-decoration: none">Voir les offres</a>
+</div>
+<div style="background: {{ t.a08 }}; border: 1px solid {{ t.aBorder }}; border-radius: 12px; padding: 16px 20px; font-size: 15px; line-height: 1.5; color: {{ t.soft }}">Les tarifs sont temporaires et en cours de validation : ils peuvent changer à tout moment. Vous serez prévenu avant tout changement.</div>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mode":{"editor":"enum","options":["sombre","clair"],"default":"sombre"},"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+renderVals() {
+const C = this.props.mode === 'clair';
+const t = C ? { bg: '#FFFFFF', card: '#F7F7F5', border: '#DDDDD8', line: '#E9E9E5', text: '#2A2A2A', heading: '#1C1C1C', soft: '#333333', muted2: '#4A4A4A', muted: '#666666', accent: '#3E6B00', aBorder: '#7FCC00', a08: 'rgba(151,242,1,0.16)', input: '#FFFFFF', knob: '#FFFFFF', off: '#CFCFCA', tabOff: '#4A4A4A', tabOn: '#1C1C1C' }
+: { bg: '#1C1C1C', card: '#262626', border: '#3A3A3A', line: '#2E2E2E', text: '#F2F2F0', heading: '#FFFFFF', soft: '#D6D6D4', muted2: '#BDBDBB', muted: '#9A9A9A', accent: '#97F201', aBorder: '#97F201', a08: 'rgba(151,242,1,0.08)', input: '#262626', knob: '#1C1C1C', off: '#3A3A3A', tabOff: '#BDBDBB', tabOn: '#97F201' };
+const sfx = C ? 'Clair' : '';
+const l = { tarifs: 'Tarifs' + sfx + '.dc.html' };
+const s = this.state || {};
+const tab = s.tab || 'entreprise';
+const rOn = s.rules || { j3: true, j0: true, j7: true, j15: false, promesse: true };
+const cOn = s.channels || { wa: true, sms: false, mail: true };
+const tabDefs = [{ k: 'entreprise', l: 'Entreprise' }, { k: 'relances', l: 'Relances' }, { k: 'canaux', l: 'Canaux' }, { k: 'abonnement', l: 'Abonnement' }];
+const tabs = tabDefs.map((x) => ({ label: x.l, active: tab === x.k, pick: () => this.setState({ tab: x.k }), color: tab === x.k ? t.tabOn : t.tabOff, line: tab === x.k ? '3px solid #97F201' : '3px solid transparent' }));
+const sw = (on) => ({ knob: on ? 'flex-end' : 'flex-start', track: on ? '#97F201' : t.off });
+const ruleDefs = [
+{ k: 'j3', label: 'Rappel 3 jours avant l’échéance', desc: 'Un message courtois avant la date' },
+{ k: 'j0', label: 'Relance le jour de l’échéance', desc: 'Si la facture n’est pas encore payée' },
+{ k: 'j7', label: 'Relance 7 jours après', desc: 'Proposée dans « À traiter maintenant »' },
+{ k: 'j15', label: 'Relance 15 jours après', desc: 'Avec proposition d’appel' },
+{ k: 'promesse', label: 'Alerte promesse non tenue', desc: 'Quand une date promise est dépassée' }
+];
+const rules = ruleDefs.map((r) => Object.assign({ label: r.label, desc: r.desc, on: !!rOn[r.k], toggle: () => { const n = Object.assign({}, rOn); n[r.k] = !rOn[r.k]; this.setState({ rules: n }); } }, sw(!!rOn[r.k])));
+const chDefs = [
+{ k: 'wa', label: 'WhatsApp', desc: 'Relances envoyées depuis votre numéro professionnel' },
+{ k: 'sms', label: 'SMS', desc: 'Pour les clients sans WhatsApp' },
+{ k: 'mail', label: 'E-mail', desc: 'Avec la facture en pièce jointe' }
+];
+const channels = chDefs.map((c) => Object.assign({ label: c.label, desc: c.desc, on: !!cOn[c.k], toggle: () => { const n = Object.assign({}, cOn); n[c.k] = !cOn[c.k]; this.setState({ channels: n }); } }, sw(!!cOn[c.k])));
+return {
+t: t, l: l, mode: C ? 'clair' : 'sombre',
+tabs: tabs, rules: rules, channels: channels,
+isEntreprise: tab === 'entreprise', isRelances: tab === 'relances', isCanaux: tab === 'canaux', isAbonnement: tab === 'abonnement'
+};
+}
+}
+</script>
+</body>
+</html>

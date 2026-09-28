@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Menu de l'espace client</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<style>
+:focus-visible{outline:3px solid #97F201;outline-offset:2px;border-radius:6px}.vq-skip{position:absolute;left:-9999px;top:12px;z-index:50}.vq-skip:focus{left:16px;background:#97F201;color:#1C1C1C;padding:10px 14px;border-radius:8px;font-weight:800;text-decoration:none}
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 260px; flex-shrink: 0; height: {{ h }}px; box-sizing: border-box; padding: 24px 16px; display: flex; flex-direction: column; gap: 2px; background: {{ t.bg2 }}; border-right: 1px solid {{ t.line }}; font-family: 'Inter', Arial, sans-serif; color: {{ t.text }}">
+<a href="{{ l.accueil }}" style="display: flex; align-items: center; gap: 10px; padding: 0 12px 22px; text-decoration: none"><span style="width: 36px; height: 36px; border-radius: 9px; background: {{ t.tile }}; display: flex; align-items: center; justify-content: center"><img src="/_blob/fdc9f9300e6a64d64f0e2a2958a10be3" alt="" style="width: 28px; height: 25px; object-fit: contain"></span><span style="font-size: 16px; font-weight: 800; color: {{ t.heading }}">VERQIA <span style="font-weight: 400; color: {{ t.accent }}">PILOT</span></span></a>
+<sc-for list="{{ main }}" as="it" hint-placeholder-count="10">
+<a href="{{ it.href }}" aria-current="{{ it.current }}" style="display: flex; align-items: center; gap: 12px; height: 40px; padding: 0 12px; border-radius: 10px; font-size: 14.5px; font-weight: 600; text-decoration: none; color: {{ it.color }}; background: {{ it.bg }}"><span style="width: 8px; height: 8px; border-radius: 2px; background: {{ it.dot }}"></span>{{ it.label }}</a>
+</sc-for>
+<div style="flex-grow: 1; min-height: 16px"></div>
+<sc-for list="{{ bottom }}" as="it" hint-placeholder-count="3">
+<a href="{{ it.href }}" aria-current="{{ it.current }}" style="display: flex; align-items: center; gap: 12px; height: 38px; padding: 0 12px; border-radius: 10px; font-size: 14px; font-weight: 600; text-decoration: none; color: {{ it.color }}; background: {{ it.bg }}"><span style="width: 8px; height: 8px; border-radius: 2px; background: {{ it.dot }}"></span>{{ it.label }}</a>
+</sc-for>
+<a href="{{ other }}" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 10px; border: 1px solid {{ t.border }}; font-size: 14px; font-weight: 600; text-decoration: none; color: {{ t.text }}; margin: 10px 0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg>{{ otherLabel }}</a>
+<div style="display: flex; align-items: center; gap: 12px; padding: 14px 12px 0; border-top: 1px solid {{ t.line }}">
+<div style="width: 36px; height: 36px; border-radius: 50%; background: {{ t.card2 }}; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: {{ t.heading }}">ME</div>
+<div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1"><div style="font-size: 14px; font-weight: 600; color: {{ t.heading }}">Mon entreprise</div><a href="{{ l.accueil }}" style="font-size: 13px; color: {{ t.muted }}; text-decoration: none">Déconnexion</a></div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"active":{"editor":"enum","options":["dashboard","tresorerie","factures","clients","recouvrement","risque","previsions","paiements","automatisations","evenements","parametres","profil","aide"],"default":"dashboard"},"mode":{"editor":"enum","options":["sombre","clair"],"default":"sombre"},"height":{"editor":"int","default":1000,"min":800,"max":3000},"$preview":{"width":260,"height":1000}}'>
+class Component extends DCLogic {
+renderVals() {
+const C = this.props.mode === 'clair';
+const t = C ? { bg2: '#F5F5F3', card2: '#E6E6E2', border: '#DDDDD8', line: '#E9E9E5', text: '#2A2A2A', heading: '#1C1C1C', muted2: '#4A4A4A', muted: '#666666', accent: '#3E6B00', a12: 'rgba(151,242,1,0.24)', dotOff: '#BDBDB8', tile: '#1C1C1C' }
+: { bg2: '#161616', card2: '#303030', border: '#3A3A3A', line: '#2E2E2E', text: '#F2F2F0', heading: '#FFFFFF', muted2: '#BDBDBB', muted: '#9A9A9A', accent: '#97F201', a12: 'rgba(151,242,1,0.12)', dotOff: '#4A4A4A', tile: 'transparent' };
+const s = C ? 'Clair' : '';
+const files = { dashboard: 'Dashboard', tresorerie: 'Tresorerie', factures: 'Factures', clients: 'Clients', recouvrement: 'Recouvrement', risque: 'Risque', previsions: 'Previsions', paiements: 'Paiements', automatisations: 'Automatisations', evenements: 'Evenements', parametres: 'Parametres', profil: 'Profil', aide: 'Aide' };
+const labels = { dashboard: 'Vue d’ensemble', tresorerie: 'Trésorerie', factures: 'Factures', clients: 'Clients', recouvrement: 'Recouvrement', risque: 'Risque', previsions: 'Prévisions', paiements: 'Paiements', automatisations: 'Automatisations', evenements: 'Événements', parametres: 'Paramètres', profil: 'Profil', aide: 'Aide' };
+const a = files[this.props.active] ? this.props.active : 'dashboard';
+const item = (k) => {
+const on = k === a;
+return { label: labels[k], href: files[k] + s + '.dc.html', current: on ? 'page' : 'false', color: on ? t.accent : t.muted2, bg: on ? t.a12 : 'transparent', dot: on ? '#97F201' : t.dotOff };
+};
+const main = ['dashboard', 'tresorerie', 'factures', 'clients', 'recouvrement', 'risque', 'previsions', 'paiements', 'automatisations', 'evenements'].map(item);
+const bottom = ['parametres', 'profil', 'aide'].map(item);
+return {
+t: t, l: { accueil: C ? 'MainClair.dc.html' : 'Main.dc.html' }, main: main, bottom: bottom,
+h: this.props.height || 1000,
+other: C ? files[a] + '.dc.html' : files[a] + 'Clair.dc.html',
+otherLabel: C ? 'Mode sombre' : 'Mode clair'
+};
+}
+}
+</script>
+</body>
+</html>

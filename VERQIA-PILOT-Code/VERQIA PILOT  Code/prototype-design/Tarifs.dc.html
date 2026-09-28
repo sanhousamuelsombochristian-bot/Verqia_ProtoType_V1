@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>VERQIA PILOT — Moment magique et tarifs</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<style>
+:focus-visible{outline:3px solid #97F201;outline-offset:2px;border-radius:6px}.vq-skip{position:absolute;left:-9999px;top:12px;z-index:50}.vq-skip:focus{left:16px !important;background:#97F201;color:#1C1C1C;padding:10px 14px;border-radius:8px;font-weight:800;text-decoration:none}
+body{margin:0;font-family:'Inter',Arial,sans-serif}
+</style>
+</helmet>
+<div style="width: 1440px; height: 3450px; box-sizing: border-box; position: relative; overflow: hidden; display: flex; flex-direction: column; background: {{ t.bg }}; color: {{ t.text }}; font-family: 'Inter', Arial, sans-serif">
+<dc-import name="Nav" active="tarifs" mode="{{ mode }}" hint-size="1440px,80px"></dc-import>
+
+<section style="box-sizing: border-box; padding: 88px 64px 48px; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center">
+<div style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: {{ t.accent }}">Le moment magique</div>
+<h1 style="margin: 0; font-size: 68px; font-weight: 800; line-height: 1.04; letter-spacing: -2px; color: {{ t.heading }}">Du chaos à la clarté, <span style="color: {{ t.hlColor }}; background: {{ t.hlBg }}">en un clic.</span></h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.55; color: {{ t.muted2 }}; max-width: 760px">Voici la journée d'un dirigeant avant et avec VERQIA PILOT. Cliquez sur le bouton pour voir la différence.</p>
+</section>
+
+<section style="box-sizing: border-box; padding: 0 64px">
+<div style="background: {{ t.card }}; border: 1px solid {{ t.border }}; border-radius: 28px; padding: 36px 40px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 24px">
+<div role="group" aria-label="Choisir la vue" style="display: flex; gap: 4px; background: {{ t.bg }}; border: 1px solid {{ t.border }}; border-radius: 12px; padding: 4px">
+<button type="button" onClick="{{ toBefore }}" aria-pressed="{{ isBefore }}" style="height: 44px; padding: 0 20px; border: none; border-radius: 9px; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer; background: {{ segBeforeBg }}; color: {{ segBeforeColor }}">Avant</button>
+<button type="button" onClick="{{ toAfter }}" aria-pressed="{{ isAfter }}" style="height: 44px; padding: 0 20px; border: none; border-radius: 9px; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer; background: {{ segAfterBg }}; color: {{ segAfterColor }}">Avec VERQIA PILOT</button>
+</div>
+<div style="font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: {{ t.muted }}">Données fictives de démonstration</div>
+</div>
+
+<sc-if value="{{ isBefore }}" hint-placeholder-val="{{ true }}">
+<div style="height: 480px; display: flex; flex-direction: column; gap: 24px">
+<div style="flex-grow: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px">
+<div style="background: {{ t.bg }}; border: 1px solid {{ t.border }}; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 10px; transform: rotate(-1.5deg)">
+<div style="font-size: 13px; font-weight: 700; color: {{ t.muted }}">EXCEL</div>
+<div style="font-size: 15px; font-weight: 600; color: {{ t.heading }}">Factures_2026_v3_FINAL.xlsx</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; font-size: 12px; color: {{ t.muted }}">
+<div style="background: {{ t.card }}; padding: 6px">Client</div><div style="background: {{ t.card }}; padding: 6px">Montant</div><div style="background: {{ t.card }}; padding: 6px">Payé ?</div>
+<div style="background: {{ t.card }}; padding: 6px">Client A</div><div style="background: {{ t.card }}; padding: 6px">1 250 000</div><div style="background: {{ t.card }}; padding: 6px">?</div>
+<div style="background: {{ t.card }}; padding: 6px">Client B</div><div style="background: {{ t.card }}; padding: 6px">??</div><div style="background: {{ t.card }}; padding: 6px">moitié ?</div>
+<div style="background: {{ t.card }}; padding: 6px">Client C</div><div style="background: {{ t.card }}; padding: 6px">780 000</div><div style="background: {{ t.card }}; padding: 6px">à voir</div>
+</div>
+</div>
+<div style="background: {{ t.bg }}; border: 1px solid {{ t.border }}; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 10px; transform: rotate(1.2deg)">
+<div style="font-size: 13px; font-weight: 700; color: {{ t.muted }}">WHATSAPP</div>
+<div style="align-self: flex-start; max-width: 90%; font-size: 14px; line-height: 1.4; color: {{ t.text }}; background: {{ t.card2 }}; border-radius: 12px 12px 12px 2px; padding: 10px 12px">Bonjour, je vous paie la semaine prochaine.</div>
+<div style="align-self: flex-end; max-width: 90%; font-size: 14px; line-height: 1.4; color: {{ t.text }}; background: {{ t.bubble }}; border-radius: 12px 12px 2px 12px; padding: 10px 12px">C'était déjà prévu la semaine dernière…</div>
+<div style="align-self: flex-start; max-width: 90%; font-size: 14px; line-height: 1.4; color: {{ t.text }}; background: {{ t.card2 }}; border-radius: 12px 12px 12px 2px; padding: 10px 12px">Vous pouvez renvoyer la facture ?</div>
+</div>
+<div style="background: {{ t.bg }}; border: 1px solid {{ t.border }}; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 12px; transform: rotate(-0.8deg)">
+<div style="font-size: 13px; font-weight: 700; color: {{ t.muted }}">CAHIER</div>
+<div style="font-size: 16px; font-style: italic; line-height: 1.5; color: {{ t.soft }}; border-bottom: 1px dashed {{ t.border }}; padding-bottom: 8px">Relancer Client B ??</div>
+<div style="font-size: 16px; font-style: italic; line-height: 1.5; color: {{ t.soft }}; border-bottom: 1px dashed {{ t.border }}; padding-bottom: 8px">Client A a payé la moitié ?</div>
+<div style="font-size: 16px; font-style: italic; line-height: 1.5; color: {{ t.soft }}; border-bottom: 1px dashed {{ t.border }}; padding-bottom: 8px">Appeler lundi (ou mardi)</div>
+</div>
+<div style="background: {{ t.bg }}; border: 1px solid {{ t.border }}; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 10px; transform: rotate(1.6deg)">
+<div style="font-size: 13px; font-weight: 700; color: {{ t.muted }}">E-MAILS</div>
+<div style="font-size: 14px; color: {{ t.text }}; border-bottom: 1px solid {{ t.line }}; padding-bottom: 10px">RE: RE: Facture n°0142</div>
+<div style="font-size: 14px; color: {{ t.text }}; border-bottom: 1px solid {{ t.line }}; padding-bottom: 10px">Relance facture — urgent</div>
+<div style="font-size: 14px; color: {{ t.text }}; border-bottom: 1px solid {{ t.line }}; padding-bottom: 10px">TR: échéance de fin de mois</div>
+<div style="font-size: 14px; color: {{ t.muted }}">+ 23 non lus</div>
+</div>
+</div>
+<div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap">
+<div style="font-size: 16px; color: {{ t.muted2 }}; border: 1px dashed {{ t.muted }}; border-radius: 999px; padding: 10px 18px">Combien va rentrer ce mois-ci ?</div>
+<div style="font-size: 16px; color: {{ t.muted2 }}; border: 1px dashed {{ t.muted }}; border-radius: 999px; padding: 10px 18px">Qui relancer en premier ?</div>
+<div style="font-size: 16px; color: {{ t.muted2 }}; border: 1px dashed {{ t.muted }}; border-radius: 999px; padding: 10px 18px">Qui a promis de payer ?</div>
+<button type="button" onClick="{{ toAfter }}" style="height: 48px; padding: 0 24px; border: none; border-radius: 12px; background: {{ t.fill }}; color: {{ t.onFill }}; font-family: inherit; font-size: 16px; font-weight: 800; cursor: pointer">Activer VERQIA PILOT →</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isAfter }}" hint-placeholder-val="{{ false }}">
+<div style="height: 480px; display: flex; gap: 24px">
+<div style="width: 340px; display: flex; flex-direction: column; gap: 14px">
+<div style="background: {{ t.bg }}; border: 1px solid {{ t.border }}; border-radius: 16px; padding: 22px"><div style="font-size: 14px; color: {{ t.muted }}">À recevoir · 30 jours</div><div style="font-size: 32px; font-weight: 800; color: {{ t.heading }}; margin-top: 6px">7 640 000 <span style="font-size: 16px; color: {{ t.muted }}">FCFA</span></div></div>
+<div style="background: {{ t.bg }}; border: 1px solid {{ t.border }}; border-radius: 16px; padding: 22px"><div style="font-size: 14px; color: {{ t.muted }}">Dont en retard</div><div style="font-size: 32px; font-weight: 800; color: {{ t.heading }}; margin-top: 6px">2 480 000 <span style="font-size: 16px; color: {{ t.muted }}">FCFA</span></div></div>
+<div style="background: {{ t.a12 }}; border: 2px solid {{ t.aBorder }}; border-radius: 16px; padding: 22px"><div style="font-size: 14px; color: {{ t.accent }}">À traiter maintenant</div><div style="font-size: 32px; font-weight: 800; color: {{ t.heading }}; margin-top: 6px">4 clients</div></div>
+</div>
+<div style="flex-grow: 1; background: {{ t.bg }}; border: 1px solid {{ t.border }}; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center"><div style="font-size: 20px; font-weight: 700; color: {{ t.heading }}">À traiter maintenant — par priorité calculée</div><div style="font-size: 13px; color: {{ t.muted }}">Canal suggéré</div></div>
+<div style="display: flex; align-items: center; gap: 16px; background: {{ t.card }}; border-radius: 12px; padding: 14px 18px"><div style="font-size: 18px; font-weight: 800; color: {{ t.accent }}; width: 24px">1</div><div style="flex-grow: 1"><div style="font-size: 16px; font-weight: 600; color: {{ t.heading }}">Distribution Exemple A</div><div style="font-size: 13px; color: {{ t.muted }}">1 250 000 FCFA · 12 jours de retard</div></div><div style="font-size: 13px; color: {{ t.heading }}; border: 1px solid {{ t.muted }}; border-radius: 999px; padding: 4px 12px">WhatsApp</div></div>
+<div style="display: flex; align-items: center; gap: 16px; background: {{ t.card }}; border-radius: 12px; padding: 14px 18px"><div style="font-size: 18px; font-weight: 800; color: {{ t.accent }}; width: 24px">2</div><div style="flex-grow: 1"><div style="font-size: 16px; font-weight: 600; color: {{ t.heading }}">BTP Exemple B</div><div style="font-size: 13px; color: {{ t.muted }}">2 100 000 FCFA · échéance demain</div></div><div style="font-size: 13px; color: {{ t.heading }}; border: 1px solid {{ t.muted }}; border-radius: 999px; padding: 4px 12px">E-mail</div></div>
+<div style="display: flex; align-items: center; gap: 16px; background: {{ t.card }}; border-radius: 12px; padding: 14px 18px"><div style="font-size: 18px; font-weight: 800; color: {{ t.accent }}; width: 24px">3</div><div style="flex-grow: 1"><div style="font-size: 16px; font-weight: 600; color: {{ t.heading }}">Cabinet Exemple C</div><div style="font-size: 13px; color: {{ t.muted }}">780 000 FCFA · promesse non tenue</div></div><div style="font-size: 13px; color: {{ t.heading }}; border: 1px solid {{ t.muted }}; border-radius: 999px; padding: 4px 12px">Appel</div></div>
+<div style="display: flex; align-items: center; gap: 16px; background: {{ t.card }}; border-radius: 12px; padding: 14px 18px"><div style="font-size: 18px; font-weight: 800; color: {{ t.accent }}; width: 24px">4</div><div style="flex-grow: 1"><div style="font-size: 16px; font-weight: 600; color: {{ t.heading }}">Maintenance Exemple D</div><div style="font-size: 13px; color: {{ t.muted }}">450 000 FCFA · 21 jours de retard</div></div><div style="font-size: 13px; color: {{ t.heading }}; border: 1px solid {{ t.muted }}; border-radius: 999px; padding: 4px 12px">WhatsApp</div></div>
+<div style="flex-grow: 1"></div>
+<div style="display: flex; justify-content: space-between; align-items: center"><div style="font-size: 16px; font-weight: 700; color: {{ t.accent }}">Combien, quand, que faire : tout est clair.</div><button type="button" onClick="{{ toBefore }}" style="height: 44px; padding: 0 18px; border: 1.5px solid {{ t.border }}; border-radius: 10px; background: transparent; color: {{ t.text }}; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Revoir l'avant</button></div>
+</div>
+</div>
+</sc-if>
+</div>
+</section>
+
+<section style="box-sizing: border-box; padding: 96px 64px 40px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+<h2 style="margin: 0; font-size: 48px; font-weight: 800; line-height: 1.1; letter-spacing: -1.2px; color: {{ t.heading }}">Et tout cela, avec un abonnement mensuel simple.</h2>
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="{{ t.icon }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+</section>
+
+<section id="tarifs" style="box-sizing: border-box; padding: 0 64px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; gap: 16px; align-items: center; background: {{ t.a10 }}; border: 1.5px solid {{ t.aBorder }}; border-radius: 16px; padding: 18px 24px">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="{{ t.icon }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+<div style="font-size: 17px; line-height: 1.5; color: {{ t.text }}"><b style="color: {{ t.heading }}">Tarifs de lancement indicatifs et temporaires.</b> Ils sont en cours de validation avec nos premières entreprises et peuvent changer à tout moment.</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px">
+<div style="background: {{ t.card }}; border: 1px solid {{ t.border }}; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 12px"><div style="font-size: 22px; font-weight: 800; color: {{ t.heading }}">Pilote</div><div style="font-size: 14px; line-height: 1.45; color: {{ t.muted }}; min-height: 40px">Premiers clients, phase de validation</div><div style="font-size: 30px; font-weight: 800; line-height: 1.15; color: {{ t.heading }}">10 000<br>– 15 000</div><div style="font-size: 14px; color: {{ t.muted }}">FCFA / mois</div><div style="flex-grow: 1"></div><a href="{{ l.inscription }}" style="height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: {{ t.fill }}; color: {{ t.onFill }}; font-size: 15px; font-weight: 700; text-decoration: none; margin-top: 12px">Rejoindre le pilote</a></div>
+<div style="background: {{ t.card }}; border: 1px solid {{ t.border }}; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 12px"><div style="font-size: 22px; font-weight: 800; color: {{ t.heading }}">Starter</div><div style="font-size: 14px; line-height: 1.45; color: {{ t.muted }}; min-height: 40px">Petites structures</div><div style="font-size: 30px; font-weight: 800; line-height: 1.15; color: {{ t.heading }}">≈ 15 000<br>&#160;</div><div style="font-size: 14px; color: {{ t.muted }}">FCFA / mois</div><div style="flex-grow: 1"></div><a href="{{ l.inscription }}" style="height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 10px; border: 1.5px solid {{ t.border }}; color: {{ t.text }}; font-size: 15px; font-weight: 600; text-decoration: none; margin-top: 12px">Choisir</a></div>
+<div style="background: {{ t.featured }}; border: 2px solid {{ t.aBorder }}; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 12px"><div style="font-size: 22px; font-weight: 800; color: {{ t.accent }}">Business</div><div style="font-size: 14px; line-height: 1.45; color: {{ t.muted2 }}; min-height: 40px">PME avec plusieurs utilisateurs</div><div style="font-size: 30px; font-weight: 800; line-height: 1.15; color: {{ t.heading }}">≈ 30 000<br>&#160;</div><div style="font-size: 14px; color: {{ t.muted }}">FCFA / mois</div><div style="flex-grow: 1"></div><a href="{{ l.inscription }}" style="height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: {{ t.fill }}; color: {{ t.onFill }}; font-size: 15px; font-weight: 700; text-decoration: none; margin-top: 12px">Choisir</a></div>
+<div style="background: {{ t.card }}; border: 1px solid {{ t.border }}; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 12px"><div style="font-size: 22px; font-weight: 800; color: {{ t.heading }}">Pro</div><div style="font-size: 14px; line-height: 1.45; color: {{ t.muted }}; min-height: 40px">Entreprises plus complexes</div><div style="font-size: 30px; font-weight: 800; line-height: 1.15; color: {{ t.heading }}">50 000<br>– 75 000</div><div style="font-size: 14px; color: {{ t.muted }}">FCFA / mois</div><div style="flex-grow: 1"></div><a href="{{ l.inscription }}" style="height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 10px; border: 1.5px solid {{ t.border }}; color: {{ t.text }}; font-size: 15px; font-weight: 600; text-decoration: none; margin-top: 12px">Choisir</a></div>
+<div style="background: {{ t.card }}; border: 1px solid {{ t.border }}; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 12px"><div style="font-size: 22px; font-weight: 800; color: {{ t.heading }}">Enterprise</div><div style="font-size: 14px; line-height: 1.45; color: {{ t.muted }}; min-height: 40px">Multi-sites, besoins spécifiques</div><div style="font-size: 30px; font-weight: 800; line-height: 1.15; color: {{ t.heading }}">Sur devis<br>&#160;</div><div style="font-size: 14px; color: {{ t.muted }}">&#160;</div><div style="flex-grow: 1"></div><a href="{{ l.inscription }}" style="height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 10px; border: 1.5px solid {{ t.border }}; color: {{ t.text }}; font-size: 15px; font-weight: 600; text-decoration: none; margin-top: 12px">Nous contacter</a></div>
+</div>
+<div style="font-size: 14px; color: {{ t.muted }}; text-align: center">Le contenu détaillé de chaque offre sera précisé à l'issue du programme pilote.</div>
+</section>
+
+<section style="box-sizing: border-box; padding: 112px 64px 0; display: flex; gap: 64px">
+<div style="width: 420px; display: flex; flex-direction: column; gap: 16px">
+<div style="font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: {{ t.accent }}">Questions fréquentes</div>
+<h2 style="margin: 0; font-size: 44px; font-weight: 800; line-height: 1.1; letter-spacing: -1.2px; color: {{ t.heading }}">Ce que vous voulez savoir.</h2>
+</div>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{ faq }}" as="item" hint-placeholder-count="4">
+<div style="background: {{ t.card }}; border: 1px solid {{ t.border }}; border-radius: 16px; overflow: hidden">
+<button type="button" onClick="{{ item.toggle }}" aria-expanded="{{ item.open }}" style="width: 100%; min-height: 68px; box-sizing: border-box; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border: none; background: transparent; color: {{ t.heading }}; font-family: inherit; font-size: 18px; font-weight: 700; text-align: left; cursor: pointer">{{ item.q }}<span style="font-size: 26px; font-weight: 400; color: {{ t.accent }}">{{ item.sign }}</span></button>
+<sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
+<div style="padding: 0 24px 22px; font-size: 16px; line-height: 1.6; color: {{ t.muted2 }}">{{ item.a }}</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="box-sizing: border-box; padding: 112px 64px 112px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 32px; background: {{ t.card }}; border: 1px solid {{ t.border }}; border-radius: 28px; padding: 48px 56px">
+<div style="display: flex; flex-direction: column; gap: 10px"><div style="font-size: 34px; font-weight: 800; color: {{ t.heading }}">Prêt à vivre le moment magique chez vous ?</div><div style="font-size: 17px; color: {{ t.muted2 }}">Rejoignez le programme pilote et mesurez la différence sur vos propres créances.</div></div>
+<a href="{{ l.inscription }}" style="flex-shrink: 0; height: 56px; padding: 0 28px; display: inline-flex; align-items: center; border-radius: 12px; background: {{ t.fill }}; color: {{ t.onFill }}; font-size: 17px; font-weight: 700; text-decoration: none">Devenir entreprise pilote</a>
+</div>
+</section>
+
+<div style="flex-grow: 1"></div>
+<dc-import name="Footer" mode="{{ mode }}" hint-size="1440px,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mode":{"editor":"enum","options":["sombre","clair"],"default":"sombre"},"$preview":{"width":1440,"height":3450}}'>
+class Component extends DCLogic {
+renderVals() {
+const C = this.props.mode === 'clair';
+const t = C ? { bg: '#FFFFFF', card: '#F7F7F5', card2: '#EDEDEA', bubble: 'rgba(151,242,1,0.30)', featured: '#FFFFFF', border: '#DDDDD8', line: '#E9E9E5', text: '#2A2A2A', heading: '#1C1C1C', soft: '#333333', muted2: '#4A4A4A', muted: '#666666', accent: '#3E6B00', icon: '#1C1C1C', fill: '#97F201', onFill: '#1C1C1C', a12: 'rgba(151,242,1,0.24)', a10: 'rgba(151,242,1,0.18)', aBorder: '#7FCC00', hlColor: '#1C1C1C', hlBg: 'linear-gradient(180deg, rgba(0,0,0,0) 62%, #97F201 62%)', segOn: '#1C1C1C', segOnText: '#FFFFFF' }
+: { bg: '#1C1C1C', card: '#262626', card2: '#303030', bubble: '#3A3A3A', featured: '#303030', border: '#3A3A3A', line: '#2E2E2E', text: '#F2F2F0', heading: '#FFFFFF', soft: '#D6D6D4', muted2: '#BDBDBB', muted: '#9A9A9A', accent: '#97F201', icon: '#97F201', fill: '#97F201', onFill: '#1C1C1C', a12: 'rgba(151,242,1,0.12)', a10: 'rgba(151,242,1,0.10)', aBorder: '#97F201', hlColor: '#97F201', hlBg: 'transparent', segOn: '#3A3A3A', segOnText: '#FFFFFF' };
+const sfx = C ? 'Clair' : '';
+const l = { inscription: 'Inscription' + sfx + '.dc.html' };
+const s = this.state || {};
+const after = !!s.after;
+const openIdx = (s.open === undefined) ? 0 : s.open;
+const raw = [
+{ q: 'Les tarifs sont-ils définitifs ?', a: 'Non. Ce sont des tarifs de lancement indicatifs, en cours de validation avec nos premières entreprises pilotes. Ils peuvent changer à tout moment.' },
+{ q: "Qu'est-ce que le programme pilote ?", a: 'Quelques semaines d’utilisation réelle, avec une mesure avant et après : créances en retard, délai d’encaissement, temps consacré aux relances.' },
+{ q: 'Dois-je changer de logiciel de gestion ?', a: 'Non. VERQIA PILOT est une couche spécialisée qui fonctionne à côté de vos outils actuels : ERP, comptabilité, caisse.' },
+{ q: 'Le produit est-il déjà disponible ?', a: 'VERQIA PILOT est en cours de développement. Le programme pilote permet de participer à sa construction et d’orienter ses priorités.' }
+];
+const faq = raw.map((f, i) => ({ q: f.q, a: f.a, open: openIdx === i, sign: openIdx === i ? '−' : '+', toggle: () => this.setState({ open: openIdx === i ? -1 : i }) }));
+return {
+t: t, l: l, mode: C ? 'clair' : 'sombre',
+isBefore: !after,
+isAfter: after,
+toBefore: () => this.setState({ after: false }),
+toAfter: () => this.setState({ after: true }),
+segBeforeBg: after ? 'transparent' : t.segOn,
+segBeforeColor: after ? t.muted : t.segOnText,
+segAfterBg: after ? t.fill : 'transparent',
+segAfterColor: after ? t.onFill : t.muted,
+faq: faq
+};
+}
+}
+</script>
+</body>
+</html>

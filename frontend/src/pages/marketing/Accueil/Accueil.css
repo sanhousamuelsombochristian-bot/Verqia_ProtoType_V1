@@ -1,0 +1,23 @@
+.vq-hero { padding: 96px 64px 40px; display: flex; gap: 64px; align-items: center; }
+.vq-hero .copy { flex: 1; display: flex; flex-direction: column; gap: 28px; max-width: 640px; }
+.vq-hero h1 { font-size: 76px; font-weight: 800; line-height: 1.02; letter-spacing: -2.5px; color: var(--heading); }
+.vq-hero p { font-size: 20px; line-height: 1.55; color: var(--soft); }
+.vq-hero .ctas, .vq-cta .ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+.vq-btn.lg { height: 56px; padding: 0 28px; font-size: 17px; border-radius: 12px; }
+.vq-pill-badge { align-self: flex-start; font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); border: 1.5px solid var(--a-border); background: var(--a12); border-radius: 999px; padding: 8px 16px; }
+.vq-hero .mock { flex: 1; max-width: 640px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; box-shadow: var(--shadow); }
+.mock-head { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); }
+.mock-row { display: grid; grid-template-columns: 44px 1fr auto auto; gap: 12px; align-items: center; border-top: 1px solid var(--line); padding-top: 10px; font-size: 14px; }
+.mock-row strong { color: var(--heading); }
+.vq-video { width: 100%; max-width: 1100px; aspect-ratio: 16 / 7; border-radius: 20px; border: 1px solid var(--border); background: #1c1c1c; color: #f2f2f0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; cursor: pointer; font-size: 18px; font-weight: 700; }
+.vq-video .play { width: 84px; height: 84px; border-radius: 50%; background: #97f201; color: #1c1c1c; display: inline-flex; align-items: center; justify-content: center; font-size: 28px; }
+.vq-cta { padding: 48px; gap: 18px; }
+@media (max-width: 1100px) { .vq-hero { flex-direction: column; align-items: stretch; } }
+@media (max-width: 900px) {
+  .vq-hero { padding: 40px 16px 0; gap: 32px; }
+  .vq-hero h1 { font-size: 42px; letter-spacing: -1.4px; }
+  .vq-hero p { font-size: 16.5px; }
+  .vq-cta { padding: 24px; }
+  .mock-row { grid-template-columns: 40px 1fr auto; }
+  .mock-row > :last-child { display: none; }
+}

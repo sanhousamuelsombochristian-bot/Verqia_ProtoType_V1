@@ -1,0 +1,484 @@
+{
+  "today": "2026-09-28",
+  "disclaimer": "Données fictives de démonstration — prototype VERQIA PILOT.",
+  "invoices": [
+    {
+      "id": "F-0142",
+      "clientId": "A",
+      "amount": 1250000,
+      "dueDate": "2026-09-16",
+      "dueStatus": "late",
+      "delayLabel": "12 j de retard",
+      "rank": 1,
+      "priority": "Urgente",
+      "risk": "Élevé",
+      "level": "L4",
+      "outcome": "PROCEED",
+      "requiresApproval": false,
+      "actionState": "SCHEDULED",
+      "action": "Relance WhatsApp · aujourd’hui",
+      "channel": "WhatsApp",
+      "note": "Relance WhatsApp planifiée aujourd’hui"
+    },
+    {
+      "id": "F-0143",
+      "clientId": "B",
+      "amount": 2100000,
+      "dueDate": "2026-09-29",
+      "dueStatus": "near",
+      "delayLabel": "demain",
+      "rank": 2,
+      "priority": "Haute",
+      "risk": "Élevé",
+      "level": "L2",
+      "outcome": "PROCEED",
+      "requiresApproval": false,
+      "actionState": "PROPOSED",
+      "action": "Rappel avant échéance · e-mail",
+      "channel": "E-mail",
+      "note": "Promesse de paiement au 29/09"
+    },
+    {
+      "id": "F-0144",
+      "clientId": "C",
+      "amount": 780000,
+      "dueDate": "2026-09-23",
+      "dueStatus": "late",
+      "delayLabel": "5 j de retard",
+      "rank": 3,
+      "priority": "Haute",
+      "risk": "Critique",
+      "level": "L3",
+      "outcome": "PROCEED",
+      "requiresApproval": true,
+      "actionState": "PROPOSED",
+      "action": "Appel manuel · en attente d’approbation",
+      "channel": "Appel",
+      "note": "Promesse rompue le 27/09"
+    },
+    {
+      "id": "F-0145",
+      "clientId": "D",
+      "amount": 450000,
+      "dueDate": "2026-09-07",
+      "dueStatus": "late",
+      "delayLabel": "21 j de retard",
+      "rank": 4,
+      "priority": "Moyenne",
+      "risk": "Modéré",
+      "level": "L3",
+      "outcome": "DEFER",
+      "requiresApproval": false,
+      "actionState": "PROPOSED",
+      "action": "Relance différée jusqu’au 02/10/2026",
+      "channel": "WhatsApp",
+      "note": "Mise en attente · Négociation · portée Client"
+    },
+    {
+      "id": "F-0146",
+      "clientId": "E",
+      "amount": 960000,
+      "dueDate": "2026-10-02",
+      "dueStatus": "near",
+      "delayLabel": "dans 4 j",
+      "rank": 5,
+      "priority": "Basse",
+      "risk": "Faible",
+      "level": "L1",
+      "outcome": "SUPPRESS",
+      "requiresApproval": false,
+      "actionState": "SUPPRESSED",
+      "action": "Rappel supprimé par le moteur",
+      "channel": "E-mail",
+      "note": "Code de suppression : [suppression_code]"
+    },
+    {
+      "id": "F-0147",
+      "clientId": "A",
+      "amount": 1480000,
+      "dueDate": "2026-10-22",
+      "dueStatus": "future",
+      "delayLabel": "dans 24 j",
+      "rank": null,
+      "priority": null,
+      "risk": "Faible",
+      "level": "L1",
+      "outcome": null,
+      "requiresApproval": false,
+      "actionState": null,
+      "action": "Aucune action retournée à ce jour",
+      "channel": null,
+      "note": "Aucune action retournée à ce jour"
+    },
+    {
+      "id": "F-0148",
+      "clientId": "F",
+      "amount": 620000,
+      "dueDate": "2026-10-24",
+      "dueStatus": "future",
+      "delayLabel": "dans 26 j",
+      "rank": 6,
+      "priority": "Basse",
+      "risk": "Faible",
+      "level": "L1",
+      "outcome": "OVERRIDDEN",
+      "requiresApproval": false,
+      "actionState": "RESCHEDULED",
+      "action": "Relance manuelle replanifiée",
+      "channel": "Appel",
+      "note": "Override accordé · revalidé à l’exécution"
+    },
+    {
+      "id": "F-0141",
+      "clientId": "C",
+      "amount": 300000,
+      "dueDate": "2026-09-20",
+      "dueStatus": "paid",
+      "delayLabel": "payée le 26/09",
+      "paidOn": "2026-09-26",
+      "rank": null,
+      "priority": null,
+      "risk": null,
+      "level": null,
+      "outcome": null,
+      "requiresApproval": false,
+      "actionState": null,
+      "action": "Encaissée le 26/09/2026",
+      "channel": null,
+      "note": "Encaissée le 26/09/2026"
+    },
+    {
+      "id": "F-0140",
+      "clientId": "E",
+      "amount": 540000,
+      "dueDate": "2026-09-15",
+      "dueStatus": "paid",
+      "delayLabel": "payée le 18/09",
+      "paidOn": "2026-09-18",
+      "rank": null,
+      "priority": null,
+      "risk": null,
+      "level": null,
+      "outcome": null,
+      "requiresApproval": false,
+      "actionState": null,
+      "action": "Encaissée le 18/09/2026",
+      "channel": null,
+      "note": "Encaissée le 18/09/2026"
+    },
+    {
+      "id": "F-0139",
+      "clientId": "B",
+      "amount": 1900000,
+      "dueDate": "2026-09-10",
+      "dueStatus": "paid",
+      "delayLabel": "payée le 12/09",
+      "paidOn": "2026-09-12",
+      "rank": null,
+      "priority": null,
+      "risk": null,
+      "level": null,
+      "outcome": null,
+      "requiresApproval": false,
+      "actionState": null,
+      "action": "Encaissée le 12/09/2026",
+      "channel": null,
+      "note": "Encaissée le 12/09/2026"
+    }
+  ],
+  "clients": [
+    {
+      "id": "A",
+      "rank": 1,
+      "name": "Distribution Exemple A",
+      "priority": "Urgente",
+      "risk": "Élevé",
+      "level": "L4"
+    },
+    {
+      "id": "B",
+      "rank": 2,
+      "name": "BTP Exemple B",
+      "priority": "Haute",
+      "risk": "Élevé",
+      "level": "L2"
+    },
+    {
+      "id": "C",
+      "rank": 3,
+      "name": "Cabinet Exemple C",
+      "priority": "Haute",
+      "risk": "Critique",
+      "level": "L3"
+    },
+    {
+      "id": "D",
+      "rank": 4,
+      "name": "Maintenance Exemple D",
+      "priority": "Moyenne",
+      "risk": "Modéré",
+      "level": "L3"
+    },
+    {
+      "id": "E",
+      "rank": 5,
+      "name": "Services Exemple E",
+      "priority": "Basse",
+      "risk": "Faible",
+      "level": "L1"
+    },
+    {
+      "id": "F",
+      "rank": 6,
+      "name": "Agence Exemple F",
+      "priority": "Basse",
+      "risk": "Faible",
+      "level": "L1"
+    }
+  ],
+  "events": [
+    {
+      "cat": "decision",
+      "title": "Approbation requise",
+      "detail": "F-0144 · Cabinet Exemple C · appel manuel",
+      "at": "2026-09-28T09:12",
+      "tone": "amber"
+    },
+    {
+      "cat": "decision",
+      "title": "Action supprimée",
+      "detail": "F-0146 · Services Exemple E · [suppression_code]",
+      "at": "2026-09-28T08:40",
+      "tone": "muted"
+    },
+    {
+      "cat": "action",
+      "title": "Relance planifiée",
+      "detail": "F-0142 · Distribution Exemple A · WhatsApp",
+      "at": "2026-09-28T08:30",
+      "tone": "lime"
+    },
+    {
+      "cat": "action",
+      "title": "Rappel proposé",
+      "detail": "F-0143 · BTP Exemple B · e-mail",
+      "at": "2026-09-28T08:30",
+      "tone": "mid"
+    },
+    {
+      "cat": "decision",
+      "title": "Action différée",
+      "detail": "F-0145 · mise en attente Négociation jusqu’au 02/10",
+      "at": "2026-09-27T17:05",
+      "tone": "amber"
+    },
+    {
+      "cat": "hold",
+      "title": "Mise en attente placée",
+      "detail": "Maintenance Exemple D · Négociation · portée Client",
+      "at": "2026-09-27T17:00",
+      "tone": "amber"
+    },
+    {
+      "cat": "promesse",
+      "title": "Promesse rompue",
+      "detail": "Cabinet Exemple C · F-0144",
+      "at": "2026-09-27T10:00",
+      "tone": "red"
+    },
+    {
+      "cat": "paiement",
+      "title": "Paiement reçu",
+      "detail": "F-0141 · Cabinet Exemple C · 300 000 FCFA",
+      "at": "2026-09-26T15:22",
+      "tone": "lime"
+    },
+    {
+      "cat": "decision",
+      "title": "Override accordé",
+      "detail": "F-0148 · Agence Exemple F · à revalider à l’exécution",
+      "at": "2026-09-26T10:30",
+      "tone": "heading"
+    },
+    {
+      "cat": "action",
+      "title": "Relance manuelle replanifiée",
+      "detail": "F-0148 · Agence Exemple F",
+      "at": "2026-09-26T10:31",
+      "tone": "mid"
+    },
+    {
+      "cat": "promesse",
+      "title": "Promesse créée",
+      "detail": "BTP Exemple B · paiement annoncé le 29/09",
+      "at": "2026-09-25T11:48",
+      "tone": "lime"
+    },
+    {
+      "cat": "facture",
+      "title": "Facture passée en retard",
+      "detail": "F-0144 · Cabinet Exemple C",
+      "at": "2026-09-24T00:00",
+      "tone": "red"
+    },
+    {
+      "cat": "paiement",
+      "title": "Paiement reçu",
+      "detail": "F-0140 · Services Exemple E · 540 000 FCFA",
+      "at": "2026-09-18T09:40",
+      "tone": "lime"
+    },
+    {
+      "cat": "facture",
+      "title": "Facture passée en retard",
+      "detail": "F-0142 · Distribution Exemple A",
+      "at": "2026-09-17T00:00",
+      "tone": "red"
+    },
+    {
+      "cat": "paiement",
+      "title": "Paiement reçu",
+      "detail": "F-0139 · BTP Exemple B · 1 900 000 FCFA",
+      "at": "2026-09-12T16:05",
+      "tone": "lime"
+    },
+    {
+      "cat": "facture",
+      "title": "Facture passée en retard",
+      "detail": "F-0145 · Maintenance Exemple D",
+      "at": "2026-09-08T00:00",
+      "tone": "red"
+    }
+  ],
+  "decisions": {
+    "F-0142": {
+      "why": "Rang #01 selon le score de rang (rank_score), puis la priorité et l’échéance. La facture est en retard : le niveau de recouvrement ne descend pas sous L3 (plancher) et ne régresse pas.",
+      "traceCount": 0,
+      "stepIndex": 1,
+      "branch": "État actuel : Planifiée (SCHEDULED)"
+    },
+    "F-0143": {
+      "why": "Rang #02. Le risque est élevé, mais la facture n’est pas encore échue : le niveau de recouvrement retourné reste L2. Une promesse de paiement est enregistrée pour le 29/09.",
+      "traceCount": 0,
+      "stepIndex": 0,
+      "branch": "État actuel : Proposée (PROPOSED)"
+    },
+    "F-0144": {
+      "why": "Risque critique, mais rang #03 : la priorité est calculée séparément du risque. Une approbation est requise avant toute exécution.",
+      "traceCount": 2,
+      "stepIndex": 0,
+      "branch": "État actuel : Proposée (PROPOSED) · approbation requise"
+    },
+    "F-0145": {
+      "why": "Risque modéré, mais la facture est en retard : le niveau de recouvrement est au plancher L3. Une mise en attente de négociation diffère l’action.",
+      "traceCount": 1,
+      "stepIndex": 0,
+      "branch": "Action suspendue par une mise en attente (portée : Client)",
+      "hold": {
+        "type": "NEGOTIATION",
+        "scope": "CUSTOMER",
+        "retryAt": "2026-10-02",
+        "cause": "[cause renseignée lors de la mise en attente]"
+      }
+    },
+    "F-0146": {
+      "why": "Le moteur a supprimé le rappel prévu. La raison est portée par le code de suppression, pas par une erreur.",
+      "traceCount": 1,
+      "stepIndex": -1,
+      "branch": "Branche : Supprimée (SUPPRESSED)",
+      "suppressionCode": "[suppression_code]"
+    },
+    "F-0147": {
+      "why": "Facture à venir, risque faible. Aucune action n’est retournée par le Rule Engine à ce jour.",
+      "traceCount": 0,
+      "stepIndex": -2,
+      "branch": ""
+    },
+    "F-0148": {
+      "why": "Une exception a été overridée par un utilisateur autorisé. L’override sera revalidé au moment de l’exécution.",
+      "traceCount": 1,
+      "stepIndex": 1,
+      "branch": "Action humaine : Replanifiée (RESCHEDULED)",
+      "override": true
+    }
+  },
+  "promises": [
+    {
+      "invoiceId": "F-0143",
+      "clientId": "B",
+      "amount": 2100000,
+      "promisedFor": "2026-09-29",
+      "status": "EN_COURS",
+      "createdAt": "2026-09-25",
+      "note": "Créée le 25/09"
+    },
+    {
+      "invoiceId": "F-0144",
+      "clientId": "C",
+      "amount": 780000,
+      "promisedFor": null,
+      "status": "ROMPUE",
+      "createdAt": null,
+      "note": "Constatée rompue le 27/09"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T-F0148",
+      "invoiceId": "F-0148",
+      "label": "Agence Exemple F · appel de relance",
+      "state": "RESCHEDULED",
+      "blockedByApproval": false
+    },
+    {
+      "id": "T-F0144",
+      "invoiceId": "F-0144",
+      "label": "Cabinet Exemple C · appel manuel",
+      "state": "PROPOSED",
+      "blockedByApproval": true
+    }
+  ],
+  "kpis": {
+    "expected30d": {
+      "value": 5160000,
+      "count": 4,
+      "trend": "+6,1 % vs 30 j préc."
+    },
+    "collectedMonth": {
+      "value": 2740000,
+      "count": 3,
+      "trend": "−2,4 % vs mois préc."
+    },
+    "openReceivables": {
+      "value": 7640000,
+      "count": 7
+    },
+    "atRisk": {
+      "value": 4130000,
+      "count": 3,
+      "trend": "+3,1 % vs 30 j préc."
+    },
+    "late": {
+      "value": 2480000,
+      "count": 3
+    },
+    "forecast30d": {
+      "value": 9850000,
+      "scenario": "base",
+      "note": "estimation"
+    },
+    "cashToday": {
+      "value": 9000000,
+      "note": "valeur de démonstration"
+    }
+  },
+  "scenarios": {
+    "start": 9.0,
+    "slopes": {
+      "pess": 0.01,
+      "base": 0.029,
+      "opt": 0.045
+    },
+    "note": "Courbes illustratives — méthode de calcul à définir."
+  }
+}

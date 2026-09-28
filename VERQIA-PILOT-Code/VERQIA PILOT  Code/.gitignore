@@ -1,0 +1,16 @@
+# Node
+node_modules/
+dist/
+*.log
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+# Éditeurs / OS
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+# Environnement
+.env

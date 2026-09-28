@@ -1,0 +1,108 @@
+.vq-logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+.vq-logo-tile { border-radius: 9px; background: var(--logo-tile); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.vq-logo-tile img { object-fit: contain; }
+.vq-logo-text { font-size: 16px; font-weight: 800; color: var(--heading); white-space: nowrap; }
+.vq-logo-text span { font-weight: 400; color: var(--accent); }
+
+.vq-app { display: flex; min-height: 100vh; background: var(--bg); }
+
+.vq-sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: var(--bg2);
+  border-right: 1px solid var(--line);
+}
+.vq-sidebar .vq-logo { padding: 0 12px 22px; }
+.vq-nav { display: flex; flex-direction: column; gap: 2px; }
+.vq-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 10px;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--muted2);
+}
+.vq-nav-item .dot { width: 8px; height: 8px; border-radius: 2px; background: var(--low); }
+.vq-nav-item:hover { color: var(--heading); }
+.vq-nav-item.active { color: var(--accent); background: var(--a12); }
+.vq-nav-item.active .dot { background: #97f201; }
+.vq-mode-btn { margin: 10px 0; justify-content: flex-start; }
+.vq-user { display: flex; align-items: center; gap: 12px; padding: 14px 12px 0; border-top: 1px solid var(--line); }
+.vq-user .avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--card2); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--heading); }
+.vq-user .name { font-size: 14px; font-weight: 600; color: var(--heading); }
+.vq-user .logout { font-size: 13px; color: var(--muted); text-decoration: none; }
+
+.vq-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.vq-topbar {
+  height: 72px;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 5;
+}
+.vq-search { max-width: 380px; height: 42px; }
+.vq-topbar-right { margin-left: auto; display: flex; align-items: center; gap: 14px; }
+.vq-badge-proto { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 6px 12px; white-space: nowrap; }
+.vq-topbar .vq-burger { display: none; }
+.vq-content { padding: 26px 32px 40px; display: flex; flex-direction: column; gap: 22px; outline: none; }
+
+.vq-tabbar { display: none; }
+.vq-scrim { display: none; }
+
+/* ---------- mobile (≤ 900 px) : menu en tiroir + barre d'onglets ---------- */
+@media (max-width: 900px) {
+  .vq-sidebar { position: fixed; left: 0; top: 0; z-index: 40; transform: translateX(-100%); transition: transform 0.2s; }
+  .vq-sidebar.open { transform: none; }
+  .vq-scrim { display: block; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.45); z-index: 30; }
+  .vq-topbar .vq-burger { display: inline-flex; }
+  .vq-topbar { padding: 0 16px; height: 60px; }
+  .vq-search, .vq-badge-proto { display: none; }
+  .vq-content { padding: 18px 16px 100px; }
+  .vq-tabbar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 72px;
+    padding: 8px 8px 14px;
+    background: var(--bg2);
+    border-top: 1px solid var(--line);
+    z-index: 20;
+  }
+  .vq-tabbar a, .vq-tabbar button {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding-top: 6px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--muted);
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .vq-tabbar .bar { width: 22px; height: 6px; border-radius: 999px; background: transparent; }
+  .vq-tabbar a.active { color: var(--heading); }
+  .vq-tabbar a.active .bar { background: #97f201; }
+}

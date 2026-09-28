@@ -1,0 +1,898 @@
+{
+ "v": 3,
+ "attachments": {},
+ "boards": {
+  "Main.dc.html": {
+   "h": 5900,
+   "is_interactive": true,
+   "page": "sombre",
+   "title": "Accueil",
+   "w": 1440,
+   "x": 0,
+   "y": 0
+  },
+  "MainClair.dc.html": {
+   "h": 5900,
+   "is_interactive": true,
+   "page": "clair",
+   "title": "Accueil — clair",
+   "w": 1440,
+   "x": 0,
+   "y": 0
+  },
+  "Entreprise.dc.html": {
+   "h": 4400,
+   "is_interactive": true,
+   "page": "sombre",
+   "title": "Entreprise — mission & vision",
+   "w": 1440,
+   "x": 1520,
+   "y": 0
+  },
+  "EntrepriseClair.dc.html": {
+   "h": 4400,
+   "is_interactive": true,
+   "page": "clair",
+   "title": "Entreprise — clair",
+   "w": 1440,
+   "x": 1520,
+   "y": 0
+  },
+  "Tarifs.dc.html": {
+   "h": 3450,
+   "is_interactive": true,
+   "page": "sombre",
+   "title": "Moment magique & tarifs",
+   "w": 1440,
+   "x": 3040,
+   "y": 0
+  },
+  "TarifsClair.dc.html": {
+   "h": 3450,
+   "is_interactive": true,
+   "page": "clair",
+   "title": "Moment magique & tarifs — clair",
+   "w": 1440,
+   "x": 3040,
+   "y": 0
+  },
+  "Connexion.dc.html": {
+   "x": 0,
+   "y": 6240,
+   "w": 1440,
+   "h": 900,
+   "title": "Connexion",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "ConnexionClair.dc.html": {
+   "x": 0,
+   "y": 6240,
+   "w": 1440,
+   "h": 900,
+   "title": "Connexion — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "Inscription.dc.html": {
+   "x": 1520,
+   "y": 6240,
+   "w": 1440,
+   "h": 1000,
+   "title": "Inscription",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "InscriptionClair.dc.html": {
+   "x": 1520,
+   "y": 6240,
+   "w": 1440,
+   "h": 1000,
+   "title": "Inscription — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "Dashboard.dc.html": {
+   "x": 3040,
+   "y": 6240,
+   "w": 1440,
+   "h": 1900,
+   "title": "Vue d'ensemble",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "DashboardClair.dc.html": {
+   "x": 3040,
+   "y": 6240,
+   "w": 1440,
+   "h": 1900,
+   "title": "Vue d'ensemble — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "Tresorerie.dc.html": {
+   "x": 4560,
+   "y": 6240,
+   "w": 1440,
+   "h": 1000,
+   "title": "Trésorerie",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "TresorerieClair.dc.html": {
+   "x": 4560,
+   "y": 6240,
+   "w": 1440,
+   "h": 1000,
+   "title": "Trésorerie — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "Factures.dc.html": {
+   "x": 6080,
+   "y": 6240,
+   "w": 1440,
+   "h": 1340,
+   "title": "Factures",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "FacturesClair.dc.html": {
+   "x": 6080,
+   "y": 6240,
+   "w": 1440,
+   "h": 1340,
+   "title": "Factures — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "Clients.dc.html": {
+   "x": 7600,
+   "y": 6240,
+   "w": 1440,
+   "h": 1000,
+   "title": "Clients",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "ClientsClair.dc.html": {
+   "x": 7600,
+   "y": 6240,
+   "w": 1440,
+   "h": 1000,
+   "title": "Clients — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "Recouvrement.dc.html": {
+   "x": 9120,
+   "y": 6240,
+   "w": 1440,
+   "h": 1000,
+   "title": "Recouvrement",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "RecouvrementClair.dc.html": {
+   "x": 9120,
+   "y": 6240,
+   "w": 1440,
+   "h": 1000,
+   "title": "Recouvrement — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "Import.dc.html": {
+   "x": 10640,
+   "y": 6240,
+   "w": 1440,
+   "h": 1000,
+   "title": "Importer des factures",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "ImportClair.dc.html": {
+   "x": 10640,
+   "y": 6240,
+   "w": 1440,
+   "h": 1000,
+   "title": "Importer des factures — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "PremiersPas.dc.html": {
+   "x": 12160,
+   "y": 6240,
+   "w": 1440,
+   "h": 1000,
+   "title": "Premiers pas",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "PremiersPasClair.dc.html": {
+   "x": 12160,
+   "y": 6240,
+   "w": 1440,
+   "h": 1000,
+   "title": "Premiers pas — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "Risque.dc.html": {
+   "x": 0,
+   "y": 8480,
+   "w": 1440,
+   "h": 1060,
+   "title": "Risque",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "RisqueClair.dc.html": {
+   "x": 0,
+   "y": 8480,
+   "w": 1440,
+   "h": 1060,
+   "title": "Risque — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "Previsions.dc.html": {
+   "x": 1520,
+   "y": 8480,
+   "w": 1440,
+   "h": 1180,
+   "title": "Prévisions",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "PrevisionsClair.dc.html": {
+   "x": 1520,
+   "y": 8480,
+   "w": 1440,
+   "h": 1180,
+   "title": "Prévisions — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "Paiements.dc.html": {
+   "x": 3040,
+   "y": 8480,
+   "w": 1440,
+   "h": 1000,
+   "title": "Paiements",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "PaiementsClair.dc.html": {
+   "x": 3040,
+   "y": 8480,
+   "w": 1440,
+   "h": 1000,
+   "title": "Paiements — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "Automatisations.dc.html": {
+   "x": 4560,
+   "y": 8480,
+   "w": 1440,
+   "h": 1020,
+   "title": "Automatisations",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "AutomatisationsClair.dc.html": {
+   "x": 4560,
+   "y": 8480,
+   "w": 1440,
+   "h": 1020,
+   "title": "Automatisations — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "Evenements.dc.html": {
+   "x": 6080,
+   "y": 8480,
+   "w": 1440,
+   "h": 1020,
+   "title": "Événements",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "EvenementsClair.dc.html": {
+   "x": 6080,
+   "y": 8480,
+   "w": 1440,
+   "h": 1020,
+   "title": "Événements — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "Parametres.dc.html": {
+   "x": 7600,
+   "y": 8480,
+   "w": 1440,
+   "h": 1000,
+   "title": "Paramètres",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "ParametresClair.dc.html": {
+   "x": 7600,
+   "y": 8480,
+   "w": 1440,
+   "h": 1000,
+   "title": "Paramètres — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "Profil.dc.html": {
+   "x": 9120,
+   "y": 8480,
+   "w": 1440,
+   "h": 1000,
+   "title": "Profil",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "ProfilClair.dc.html": {
+   "x": 9120,
+   "y": 8480,
+   "w": 1440,
+   "h": 1000,
+   "title": "Profil — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "Aide.dc.html": {
+   "x": 10640,
+   "y": 8480,
+   "w": 1440,
+   "h": 1050,
+   "title": "Aide",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "AideClair.dc.html": {
+   "x": 10640,
+   "y": 8480,
+   "w": 1440,
+   "h": 1050,
+   "title": "Aide — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "Lexique.dc.html": {
+   "x": 12160,
+   "y": 8480,
+   "w": 1440,
+   "h": 2620,
+   "title": "Lexique VERQIA",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "LexiqueClair.dc.html": {
+   "x": 12160,
+   "y": 8480,
+   "w": 1440,
+   "h": 2620,
+   "title": "Lexique VERQIA — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "Nav.dc.html": {
+   "x": 0,
+   "y": 11440,
+   "w": 1440,
+   "h": 80,
+   "title": "Composant — Barre de navigation",
+   "page": "sombre"
+  },
+  "Footer.dc.html": {
+   "x": 1520,
+   "y": 11440,
+   "w": 1440,
+   "h": 320,
+   "title": "Composant — Pied de page",
+   "page": "sombre"
+  },
+  "AppSidebar.dc.html": {
+   "x": 3040,
+   "y": 11440,
+   "w": 260,
+   "h": 1000,
+   "title": "Composant — Menu de l'espace client",
+   "page": "sombre"
+  },
+  "DecisionPanel.dc.html": {
+   "x": 3380,
+   "y": 11440,
+   "w": 500,
+   "h": 1300,
+   "title": "Composant — Panneau de décision",
+   "page": "sombre"
+  },
+  "FactureDetail.dc.html": {
+   "x": 3960,
+   "y": 11440,
+   "w": 1440,
+   "h": 1100,
+   "title": "Composant — Fiche facture (modèle)",
+   "page": "sombre"
+  },
+  "MobileAccueil.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 3200,
+   "title": "Mobile — Accueil",
+   "is_interactive": true,
+   "page": "mobile"
+  },
+  "MobileAccueilClair.dc.html": {
+   "x": 0,
+   "y": 3560,
+   "w": 390,
+   "h": 3200,
+   "title": "Mobile — Accueil — clair",
+   "is_interactive": true,
+   "page": "mobile"
+  },
+  "MobileConnexion.dc.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Mobile — Connexion",
+   "is_interactive": true,
+   "page": "mobile"
+  },
+  "MobileConnexionClair.dc.html": {
+   "x": 470,
+   "y": 3560,
+   "w": 390,
+   "h": 844,
+   "title": "Mobile — Connexion — clair",
+   "is_interactive": true,
+   "page": "mobile"
+  },
+  "MobileVueEnsemble.dc.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 1960,
+   "title": "Mobile — Vue d'ensemble",
+   "is_interactive": true,
+   "page": "mobile"
+  },
+  "MobileVueEnsembleClair.dc.html": {
+   "x": 940,
+   "y": 3560,
+   "w": 390,
+   "h": 1960,
+   "title": "Mobile — Vue d'ensemble — clair",
+   "is_interactive": true,
+   "page": "mobile"
+  },
+  "MobileFactures.dc.html": {
+   "x": 1410,
+   "y": 0,
+   "w": 390,
+   "h": 1480,
+   "title": "Mobile — Factures",
+   "is_interactive": true,
+   "page": "mobile"
+  },
+  "MobileFacturesClair.dc.html": {
+   "x": 1410,
+   "y": 3560,
+   "w": 390,
+   "h": 1480,
+   "title": "Mobile — Factures — clair",
+   "is_interactive": true,
+   "page": "mobile"
+  },
+  "MobileRecouvrement.dc.html": {
+   "x": 1880,
+   "y": 0,
+   "w": 390,
+   "h": 940,
+   "title": "Mobile — Recouvrement",
+   "is_interactive": true,
+   "page": "mobile"
+  },
+  "MobileRecouvrementClair.dc.html": {
+   "x": 1880,
+   "y": 3560,
+   "w": 390,
+   "h": 940,
+   "title": "Mobile — Recouvrement — clair",
+   "is_interactive": true,
+   "page": "mobile"
+  },
+  "MobilePlus.dc.html": {
+   "x": 2350,
+   "y": 0,
+   "w": 390,
+   "h": 1000,
+   "title": "Mobile — Plus",
+   "is_interactive": true,
+   "page": "mobile"
+  },
+  "MobilePlusClair.dc.html": {
+   "x": 2350,
+   "y": 3560,
+   "w": 390,
+   "h": 1000,
+   "title": "Mobile — Plus — clair",
+   "is_interactive": true,
+   "page": "mobile"
+  },
+  "MobileInscription.dc.html": {
+   "x": 2820,
+   "y": 0,
+   "w": 390,
+   "h": 980,
+   "title": "Mobile — Inscription",
+   "is_interactive": true,
+   "page": "mobile"
+  },
+  "MobileInscriptionClair.dc.html": {
+   "x": 2820,
+   "y": 3560,
+   "w": 390,
+   "h": 980,
+   "title": "Mobile — Inscription — clair",
+   "is_interactive": true,
+   "page": "mobile"
+  },
+  "MobilePremiersPas.dc.html": {
+   "x": 3290,
+   "y": 0,
+   "w": 390,
+   "h": 960,
+   "title": "Mobile — Premiers pas",
+   "is_interactive": true,
+   "page": "mobile"
+  },
+  "MobilePremiersPasClair.dc.html": {
+   "x": 3290,
+   "y": 3560,
+   "w": 390,
+   "h": 960,
+   "title": "Mobile — Premiers pas — clair",
+   "is_interactive": true,
+   "page": "mobile"
+  },
+  "FactureF0142.dc.html": {
+   "x": 0,
+   "y": 13100,
+   "w": 1440,
+   "h": 1100,
+   "title": "Fiche facture F-0142",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "FactureF0142Clair.dc.html": {
+   "x": 0,
+   "y": 13100,
+   "w": 1440,
+   "h": 1100,
+   "title": "Fiche facture F-0142 — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "FactureF0143.dc.html": {
+   "x": 1520,
+   "y": 13100,
+   "w": 1440,
+   "h": 1100,
+   "title": "Fiche facture F-0143",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "FactureF0143Clair.dc.html": {
+   "x": 1520,
+   "y": 13100,
+   "w": 1440,
+   "h": 1100,
+   "title": "Fiche facture F-0143 — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "FactureF0144.dc.html": {
+   "x": 3040,
+   "y": 13100,
+   "w": 1440,
+   "h": 1100,
+   "title": "Fiche facture F-0144",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "FactureF0144Clair.dc.html": {
+   "x": 3040,
+   "y": 13100,
+   "w": 1440,
+   "h": 1100,
+   "title": "Fiche facture F-0144 — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "FactureF0145.dc.html": {
+   "x": 4560,
+   "y": 13100,
+   "w": 1440,
+   "h": 1100,
+   "title": "Fiche facture F-0145",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "FactureF0145Clair.dc.html": {
+   "x": 4560,
+   "y": 13100,
+   "w": 1440,
+   "h": 1100,
+   "title": "Fiche facture F-0145 — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "FactureF0146.dc.html": {
+   "x": 6080,
+   "y": 13100,
+   "w": 1440,
+   "h": 1100,
+   "title": "Fiche facture F-0146",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "FactureF0146Clair.dc.html": {
+   "x": 6080,
+   "y": 13100,
+   "w": 1440,
+   "h": 1100,
+   "title": "Fiche facture F-0146 — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "FactureF0147.dc.html": {
+   "x": 7600,
+   "y": 13100,
+   "w": 1440,
+   "h": 1100,
+   "title": "Fiche facture F-0147",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "FactureF0147Clair.dc.html": {
+   "x": 7600,
+   "y": 13100,
+   "w": 1440,
+   "h": 1100,
+   "title": "Fiche facture F-0147 — clair",
+   "is_interactive": true,
+   "page": "clair"
+  },
+  "FactureF0148.dc.html": {
+   "x": 9120,
+   "y": 13100,
+   "w": 1440,
+   "h": 1100,
+   "title": "Fiche facture F-0148",
+   "is_interactive": true,
+   "page": "sombre"
+  },
+  "FactureF0148Clair.dc.html": {
+   "x": 9120,
+   "y": 13100,
+   "w": 1440,
+   "h": 1100,
+   "title": "Fiche facture F-0148 — clair",
+   "is_interactive": true,
+   "page": "clair"
+  }
+ },
+ "createdOnFiles": {
+  "at": "2026-09-28T18:05:00Z",
+  "v": 1
+ },
+ "designSystems": [],
+ "launch": {
+  "page": "sombre",
+  "view": "canvas"
+ },
+ "notes": {
+  "row5": {
+   "kind": "title1",
+   "maxW": 8000,
+   "page": "sombre",
+   "text": "Fiches facture — une par facture ouverte",
+   "w": 240,
+   "x": 0,
+   "y": 12800
+  },
+  "crow5": {
+   "kind": "title1",
+   "maxW": 8000,
+   "page": "clair",
+   "text": "Fiches facture — mode clair",
+   "w": 240,
+   "x": 0,
+   "y": 12800
+  },
+  "row1": {
+   "kind": "title1",
+   "maxW": 4480,
+   "page": "sombre",
+   "text": "Site vitrine",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "row2": {
+   "kind": "title1",
+   "maxW": 8000,
+   "page": "sombre",
+   "text": "Accès et espace client — pilotage au quotidien",
+   "w": 240,
+   "x": 0,
+   "y": 5940
+  },
+  "row3": {
+   "kind": "title1",
+   "maxW": 8000,
+   "page": "sombre",
+   "text": "Espace client — analyse, configuration, aide et lexique",
+   "w": 240,
+   "x": 0,
+   "y": 8180
+  },
+  "row4": {
+   "kind": "title1",
+   "maxW": 3880,
+   "page": "sombre",
+   "text": "Composants partagés",
+   "w": 240,
+   "x": 0,
+   "y": 11140
+  },
+  "crow1": {
+   "kind": "title1",
+   "maxW": 4480,
+   "page": "clair",
+   "text": "Site vitrine — mode clair",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "crow2": {
+   "kind": "title1",
+   "maxW": 8000,
+   "page": "clair",
+   "text": "Accès et espace client — mode clair",
+   "w": 240,
+   "x": 0,
+   "y": 5940
+  },
+  "crow3": {
+   "kind": "title1",
+   "maxW": 8000,
+   "page": "clair",
+   "text": "Analyse, configuration et aide — mode clair",
+   "w": 240,
+   "x": 0,
+   "y": 8180
+  },
+  "m1": {
+   "kind": "title1",
+   "maxW": 2740,
+   "page": "mobile",
+   "text": "Mobile — mode sombre (390 px)",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "m2": {
+   "kind": "title1",
+   "maxW": 2740,
+   "page": "mobile",
+   "text": "Mobile — mode clair",
+   "w": 240,
+   "x": 0,
+   "y": 3260
+  }
+ },
+ "order": [
+  "Main.dc.html",
+  "Entreprise.dc.html",
+  "Tarifs.dc.html",
+  "Connexion.dc.html",
+  "Inscription.dc.html",
+  "Dashboard.dc.html",
+  "Tresorerie.dc.html",
+  "Factures.dc.html",
+  "Clients.dc.html",
+  "Recouvrement.dc.html",
+  "Import.dc.html",
+  "PremiersPas.dc.html",
+  "Risque.dc.html",
+  "Previsions.dc.html",
+  "Paiements.dc.html",
+  "Automatisations.dc.html",
+  "Evenements.dc.html",
+  "Parametres.dc.html",
+  "Profil.dc.html",
+  "Aide.dc.html",
+  "Lexique.dc.html",
+  "Nav.dc.html",
+  "Footer.dc.html",
+  "AppSidebar.dc.html",
+  "DecisionPanel.dc.html",
+  "FactureDetail.dc.html",
+  "MainClair.dc.html",
+  "EntrepriseClair.dc.html",
+  "TarifsClair.dc.html",
+  "ConnexionClair.dc.html",
+  "InscriptionClair.dc.html",
+  "DashboardClair.dc.html",
+  "TresorerieClair.dc.html",
+  "FacturesClair.dc.html",
+  "ClientsClair.dc.html",
+  "RecouvrementClair.dc.html",
+  "ImportClair.dc.html",
+  "PremiersPasClair.dc.html",
+  "RisqueClair.dc.html",
+  "PrevisionsClair.dc.html",
+  "PaiementsClair.dc.html",
+  "AutomatisationsClair.dc.html",
+  "EvenementsClair.dc.html",
+  "ParametresClair.dc.html",
+  "ProfilClair.dc.html",
+  "AideClair.dc.html",
+  "LexiqueClair.dc.html",
+  "MobileAccueil.dc.html",
+  "MobileConnexion.dc.html",
+  "MobileVueEnsemble.dc.html",
+  "MobileFactures.dc.html",
+  "MobileRecouvrement.dc.html",
+  "MobilePlus.dc.html",
+  "MobileInscription.dc.html",
+  "MobilePremiersPas.dc.html",
+  "MobileAccueilClair.dc.html",
+  "MobileConnexionClair.dc.html",
+  "MobileVueEnsembleClair.dc.html",
+  "MobileFacturesClair.dc.html",
+  "MobileRecouvrementClair.dc.html",
+  "MobilePlusClair.dc.html",
+  "MobileInscriptionClair.dc.html",
+  "MobilePremiersPasClair.dc.html",
+  "FactureF0142.dc.html",
+  "FactureF0143.dc.html",
+  "FactureF0144.dc.html",
+  "FactureF0145.dc.html",
+  "FactureF0146.dc.html",
+  "FactureF0147.dc.html",
+  "FactureF0148.dc.html",
+  "FactureF0142Clair.dc.html",
+  "FactureF0143Clair.dc.html",
+  "FactureF0144Clair.dc.html",
+  "FactureF0145Clair.dc.html",
+  "FactureF0146Clair.dc.html",
+  "FactureF0147Clair.dc.html",
+  "FactureF0148Clair.dc.html"
+ ],
+ "pages": [
+  {
+   "id": "sombre",
+   "name": "Mode sombre"
+  },
+  {
+   "id": "clair",
+   "name": "Mode clair"
+  },
+  {
+   "id": "mobile",
+   "name": "Mobile"
+  }
+ ],
+ "title": "VERQIA PILOT — Site web prototype"
+}

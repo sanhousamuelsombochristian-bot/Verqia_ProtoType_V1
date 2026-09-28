@@ -1,0 +1,19 @@
+.vq-auth { min-height: 100vh; display: flex; background: var(--bg); }
+.vq-auth .brand-panel { width: 42%; background: #1c1c1c; color: #f2f2f0; padding: 56px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+.vq-auth .brand-panel .watermark { position: absolute; left: 120px; top: 30%; width: 520px; opacity: 0.07; }
+.vq-auth .brand-panel .q { font-size: 44px; font-weight: 800; line-height: 1.1; letter-spacing: -1.2px; color: #fff; position: relative; }
+.vq-auth .brand-panel .q span { color: #97f201; }
+.vq-auth .brand-panel .vq-logo-text { color: #fff; }
+.vq-auth .brand-panel .vq-logo-text span { color: #97f201; }
+.vq-auth .form-side { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 24px; position: relative; }
+.vq-auth form { width: 100%; max-width: 460px; display: flex; flex-direction: column; gap: 18px; }
+.vq-auth form h1 { font-size: 36px; font-weight: 800; letter-spacing: -1px; color: var(--heading); }
+.vq-auth .mode { position: absolute; top: 24px; right: 24px; }
+@media (max-width: 900px) {
+  .vq-auth { flex-direction: column; }
+  .vq-auth .brand-panel { width: auto; padding: 20px 16px 26px; gap: 18px; }
+  .vq-auth .brand-panel .q { font-size: 24px; }
+  .vq-auth .brand-panel .tagline { display: none; }
+  .vq-auth .form-side { align-items: flex-start; }
+  .vq-auth .mode { top: 18px; right: 16px; }
+}
