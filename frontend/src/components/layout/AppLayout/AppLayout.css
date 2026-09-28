@@ -57,7 +57,8 @@
   background: var(--bg);
   z-index: 5;
 }
-.vq-search { max-width: 380px; height: 42px; }
+.vq-search-form { flex: 1; max-width: 380px; }
+.vq-search { height: 42px; }
 .vq-topbar-right { margin-left: auto; display: flex; align-items: center; gap: 14px; }
 .vq-badge-proto { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 6px 12px; white-space: nowrap; }
 .vq-topbar .vq-burger { display: none; }
@@ -73,7 +74,7 @@
   .vq-scrim { display: block; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.45); z-index: 30; }
   .vq-topbar .vq-burger { display: inline-flex; }
   .vq-topbar { padding: 0 16px; height: 60px; }
-  .vq-search, .vq-badge-proto { display: none; }
+  .vq-search-form, .vq-badge-proto { display: none; }
   .vq-content { padding: 18px 16px 100px; }
   .vq-tabbar {
     display: flex;

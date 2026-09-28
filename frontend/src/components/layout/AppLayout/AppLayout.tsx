@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
+import { useState, type FormEvent } from 'react';
+import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Logo } from '../Logo';
 import { BellIcon, MenuIcon, SunIcon } from '@/components/ui';
 import { useTheme } from '@/theme/ThemeProvider';
@@ -20,6 +20,13 @@ export function AppLayout() {
   const { source } = useData();
   const [menuOpen, setMenuOpen] = useState(false);
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const [q, setQ] = useState('');
+  /** Recherche globale : ouvre la liste des factures filtrée (numéro ou client). */
+  const search = (e: FormEvent) => {
+    e.preventDefault();
+    navigate(`/app/factures${q.trim() ? `?q=${encodeURIComponent(q.trim())}` : ''}`);
+  };
 
   return (
     <div className="vq-app">
@@ -51,7 +58,9 @@ export function AppLayout() {
           <button type="button" className="vq-btn sm vq-burger" aria-label="Ouvrir le menu" aria-expanded={menuOpen} onClick={() => setMenuOpen((o) => !o)}>
             <MenuIcon />
           </button>
-          <input type="search" className="vq-input vq-search" aria-label="Rechercher un client ou une facture" placeholder="Rechercher un client, une facture…" />
+          <form role="search" onSubmit={search} className="vq-search-form">
+            <input type="search" className="vq-input vq-search" aria-label="Rechercher un client ou une facture" placeholder="Rechercher un client, une facture… (Entrée)" value={q} onChange={(e) => setQ(e.target.value)} />
+          </form>
           <div className="vq-topbar-right">
             <span className="vq-badge-proto" title={source === 'api' ? 'Données servies par l’API Python' : 'Données locales (API non lancée)'}>
               Prototype · démo · {source === 'api' ? 'API' : 'local'}

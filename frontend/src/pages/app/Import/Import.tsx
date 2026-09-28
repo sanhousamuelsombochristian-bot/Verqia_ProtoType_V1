@@ -84,7 +84,7 @@ export default function Import() {
             </div>
             <div className="vq-callout amber filled" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16 }}>
               <div><div className="title-amber">1 point à vérifier</div>Agence Exemple F — adresse e-mail manquante. L’import reste possible ; complétez la fiche client plus tard.</div>
-              <button type="button" className="vq-btn sm">Compléter</button>
+              <Link to="/app/clients?c=F" className="vq-btn sm">Compléter la fiche</Link>
             </div>
             <p className="vq-sub">Aucune donnée n’est envoyée à vos clients pendant l’import. Les relances ne partent qu’après décision du Rule Engine.</p>
           </>

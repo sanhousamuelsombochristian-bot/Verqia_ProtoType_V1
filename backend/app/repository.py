@@ -34,7 +34,23 @@ class DemoRepository:
         self.reset()
 
     def reset(self) -> None:
-        self.data = copy.deepcopy(_raw_demo())
+        d = copy.deepcopy(_raw_demo())
+        # Paiements et mises en attente déduits des données de démo (miroir de store.ts / initialState).
+        d.setdefault("payments", [
+            {"id": f"P-{i['id']}", "invoiceId": i["id"], "amount": i["amount"], "date": i.get("paidOn") or d["today"],
+             "method": "[à préciser]", "reconciled": True}
+            for i in d["invoices"] if i["dueStatus"] == "paid"
+        ])
+        holds = []
+        for n, (inv_id, dec) in enumerate([(k, v) for k, v in d["decisions"].items() if v.get("hold")], start=1):
+            h = dict(dec["hold"])
+            inv = next((i for i in d["invoices"] if i["id"] == inv_id), None)
+            h.update(id=f"H-{n}", createdAt="2026-09-27T17:00",
+                     targetId=inv_id if h["scope"] == "INVOICE" else (inv or {}).get("clientId"))
+            holds.append(h)
+        d.setdefault("holds", holds)
+        d.setdefault("notes", [])
+        self.data = d
 
     # ------------------------------------------------------------------ lectures
     @property
@@ -55,9 +71,11 @@ class DemoRepository:
     def clients(self) -> list[dict]:
         out = []
         for c in self.data["clients"]:
+            c = {"rank": None, "priority": None, "risk": None, "level": None, **c}
             open_inv = [i for i in self.invoices() if i["clientId"] == c["id"] and i["dueStatus"] != "paid"]
             out.append({**c, "openInvoices": len(open_inv), "outstanding": sum(i["amount"] for i in open_inv)})
-        return sorted(out, key=lambda c: c["rank"])
+        # Clients non encore évalués (rang absent) en fin de liste.
+        return sorted(out, key=lambda c: (c["rank"] is None, c["rank"] or 0))
 
     def client(self, client_id: str) -> dict | None:
         return next((c for c in self.clients() if c["id"] == client_id), None)

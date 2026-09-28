@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { useData } from '@/services/DataProvider';
 import { dateTimeShort } from '@/domain/format';
 import type { EventCat } from '@/domain/types';
-import { PageHeader, Tabs } from '@/components/ui';
+import { PageHeader, Tabs, useToast } from '@/components/ui';
+import { toCsv } from '@/services/store';
+import { downloadText } from '@/services/download';
 
-const NAMES: Record<EventCat, string> = { decision: 'Décision du moteur', action: 'Action', hold: 'Mise en attente', promesse: 'Promesse', paiement: 'Paiement', facture: 'Facture' };
+const NAMES: Record<EventCat, string> = { decision: 'Décision du moteur', action: 'Action', hold: 'Mise en attente', promesse: 'Promesse', paiement: 'Paiement', facture: 'Facture', client: 'Client' };
 const TABS: { key: 'tous' | EventCat; label: string }[] = [
   { key: 'tous', label: 'Tous' }, { key: 'decision', label: 'Décisions' }, { key: 'action', label: 'Actions' }, { key: 'hold', label: 'Mises en attente' },
-  { key: 'promesse', label: 'Promesses' }, { key: 'paiement', label: 'Paiements' }, { key: 'facture', label: 'Factures' },
+  { key: 'promesse', label: 'Promesses' }, { key: 'paiement', label: 'Paiements' }, { key: 'facture', label: 'Factures' }, { key: 'client', label: 'Clients' },
 ];
 
 /** Événements : journal complet, filtrable par catégorie. */
@@ -15,10 +17,17 @@ export default function Evenements() {
   const { data } = useData();
   const [cat, setCat] = useState<'tous' | EventCat>('tous');
   const events = data.events.filter((e) => cat === 'tous' || e.cat === cat);
+  const toast = useToast();
+  /** Exporte le journal affiché (filtre courant) au format CSV, lisible dans Excel. */
+  const exportCsv = () => {
+    const rows = [['Date', 'Heure', 'Catégorie', 'Événement', 'Détail'], ...events.map((e) => [e.at.slice(0, 10), e.at.slice(11, 16), NAMES[e.cat], e.title, e.detail])];
+    downloadText(`verqia-journal-${data.today}${cat === 'tous' ? '' : '-' + cat}.csv`, toCsv(rows));
+    toast(`${events.length} événements exportés (CSV)`);
+  };
 
   return (
     <>
-      <PageHeader title="Événements" sub="Le journal complet : décisions du moteur, actions, promesses, paiements et factures." actions={<button type="button" className="vq-btn">Exporter le journal</button>} />
+      <PageHeader title="Événements" sub="Le journal complet : décisions du moteur, actions, promesses, paiements et factures." actions={<button type="button" className="vq-btn" onClick={exportCsv}>Exporter le journal (CSV)</button>} />
       <section className="vq-card" style={{ gap: 0 }}>
         <Tabs label="Filtrer les événements" value={cat} onChange={setCat} tabs={TABS.map((t) => ({ ...t, count: t.key === 'tous' ? data.events.length : data.events.filter((e) => e.cat === t.key).length }))} />
         <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>

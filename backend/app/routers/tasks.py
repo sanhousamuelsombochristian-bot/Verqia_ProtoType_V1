@@ -8,6 +8,7 @@ from fastapi import APIRouter, HTTPException
 
 from ..models import Task
 from ..repository import repo
+from ..services import _event
 
 router = APIRouter(prefix="/api/tasks", tags=["Tâches"])
 
@@ -34,6 +35,7 @@ def claim_task(task_id: str):
     if t["state"] not in CLAIMABLE:
         raise HTTPException(409, f"Transition impossible depuis l’état {t['state']}.")
     t["state"] = "CLAIMED"
+    _event(repo, "action", "Tâche prise en charge", f"{t['invoiceId']} · {t['label']}", "mid")
     return t
 
 
@@ -43,6 +45,7 @@ def complete_task(task_id: str):
     if t["state"] != "CLAIMED":
         raise HTTPException(409, "Seule une tâche prise en charge peut être clôturée.")
     t["state"] = "COMPLETED"
+    _event(repo, "action", "Tâche clôturée", f"{t['invoiceId']} · {t['label']}", "lime")
     return t
 
 

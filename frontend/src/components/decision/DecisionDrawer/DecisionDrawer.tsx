@@ -1,4 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { holdsFor } from '@/services/store';
+import { ApprovalDialog } from '@/components/forms';
 import { HOLD_SCOPE_LABEL, HOLD_TYPE_LABEL, MAIN_PATH, STATE_LABEL, outcomeCode, outcomeKey } from '@/domain/lexique';
 import { dateFr, fcfa } from '@/domain/format';
 import { useData } from '@/services/DataProvider';
@@ -15,14 +18,16 @@ export function DecisionDrawer({ invoiceId, onClose }: { invoiceId: string | nul
   const { byId } = useInvoices();
   const clients = useClients();
   const closeRef = useRef<HTMLButtonElement>(null);
+  const navigate = useNavigate();
+  const [deciding, setDeciding] = useState<string | null>(null);
 
   useEffect(() => {
     if (!invoiceId) return;
     closeRef.current?.focus();
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && !deciding && onClose();
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [invoiceId, onClose]);
+  }, [invoiceId, onClose, deciding]);
 
   if (!invoiceId) return null;
   const inv = byId(invoiceId);
@@ -30,6 +35,7 @@ export function DecisionDrawer({ invoiceId, onClose }: { invoiceId: string | nul
   if (!inv || !dec) return null;
   const key = outcomeKey(inv);
   const client = clients.byId(inv.clientId);
+  const holds = holdsFor(data, inv);
 
   return (
     <div className="vq-drawer-scrim" onClick={onClose}>
@@ -65,14 +71,14 @@ export function DecisionDrawer({ invoiceId, onClose }: { invoiceId: string | nul
           </dl>
         </section>
 
-        {dec.hold && (
-          <div className="vq-callout amber">
+        {holds.map((h) => (
+          <div key={h.id ?? h.retryAt} className="vq-callout amber">
             <div className="title-amber">Mise en attente active (hold) · action différée</div>
-            Type : {HOLD_TYPE_LABEL[dec.hold.type]} <span className="vq-code">{dec.hold.type}</span> · Portée : {HOLD_SCOPE_LABEL[dec.hold.scope]} <span className="vq-code">{dec.hold.scope}</span>
-            <br />Réessai prévu : {dateFr(dec.hold.retryAt)} <span className="vq-code">retry_at</span>
-            <br /><span className="vq-muted">Cause : {dec.hold.cause}</span>
+            Type : {HOLD_TYPE_LABEL[h.type]} <span className="vq-code">{h.type}</span> · Portée : {HOLD_SCOPE_LABEL[h.scope]} <span className="vq-code">{h.scope}</span>
+            <br />Réessai prévu : {dateFr(h.retryAt)} <span className="vq-code">retry_at</span>
+            <br /><span className="vq-muted">Cause : {h.cause}</span>
           </div>
-        )}
+        ))}
         {dec.suppressionCode && (
           <div className="vq-callout">
             <strong>Action supprimée · décision métier</strong><br />
@@ -91,8 +97,8 @@ export function DecisionDrawer({ invoiceId, onClose }: { invoiceId: string | nul
             <div className="title-amber">Approbation requise</div>
             L’action ne sera pas exécutée automatiquement. Un utilisateur habilité doit décider.
             <div style={{ display: 'flex', gap: 8, marginTop: 10 }}>
-              <button type="button" className="vq-btn sm">Voir la demande</button>
-              <button type="button" className="vq-btn sm primary">Décider</button>
+              <button type="button" className="vq-btn sm" onClick={() => { onClose(); navigate('/app/recouvrement?tab=appro'); }}>Voir la demande</button>
+              <button type="button" className="vq-btn sm primary" onClick={() => setDeciding(inv.id)}>Décider</button>
             </div>
           </div>
         )}
@@ -114,6 +120,7 @@ export function DecisionDrawer({ invoiceId, onClose }: { invoiceId: string | nul
           </section>
         )}
 
+        <ApprovalDialog invoiceId={deciding} onClose={() => setDeciding(null)} />
         <p className="foot">Cette interface affiche la décision du Rule Engine, elle ne la recalcule pas. Les codes entre crochets proviendront du moteur — valeurs de démonstration.</p>
       </aside>
     </div>

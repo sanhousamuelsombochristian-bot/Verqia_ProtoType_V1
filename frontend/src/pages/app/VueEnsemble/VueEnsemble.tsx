@@ -29,10 +29,10 @@ export default function VueEnsemble() {
       <section aria-labelledby="synthese" className="vq-stack" style={{ gap: 10 }}>
         <div id="synthese" className="vq-eyebrow">1 · Synthèse financière</div>
         <div className="vq-grid cols-6">
-          <KpiCard label="Encaissements attendus · 30 j" value={fcfa(k.expected30d.value)} unit="FCFA" hint={`${k.expected30d.count} factures · ${k.expected30d.trend}`} />
-          <KpiCard label="Encaissements réalisés · ce mois" value={fcfa(k.collectedMonth.value)} unit="FCFA" hint={`${k.collectedMonth.count} paiements · ${k.collectedMonth.trend}`} />
+          <KpiCard label="Encaissements attendus · 30 j" value={fcfa(k.expected30d.value)} unit="FCFA" hint={`${k.expected30d.count} factures proches ou à venir`} />
+          <KpiCard label="Encaissements réalisés · ce mois" value={fcfa(k.collectedMonth.value)} unit="FCFA" hint={`${k.collectedMonth.count} paiements`} />
           <KpiCard label="Créances ouvertes" value={fcfa(k.openReceivables.value)} unit="FCFA" hint={`${k.openReceivables.count} factures · à date`} />
-          <KpiCard label="Montant à risque · Élevé + Critique" value={fcfa(k.atRisk.value)} unit="FCFA" hint={`${k.atRisk.count} factures · ${k.atRisk.trend}`} tone="amber" />
+          <KpiCard label="Montant à risque · Élevé + Critique" value={fcfa(k.atRisk.value)} unit="FCFA" hint={`${k.atRisk.count} factures`} tone="amber" />
           <KpiCard label="En retard" value={String(k.late.count)} unit="factures" hint={`${fcfa(k.late.value)} FCFA · à date`} tone="red" />
           <KpiCard label="Trésorerie prévisionnelle · 30 j" value={fcfa(k.forecast30d.value)} unit="FCFA" hint="Scénario base · estimation" />
         </div>

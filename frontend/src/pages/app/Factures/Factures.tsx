@@ -1,11 +1,12 @@
-import { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useMemo, useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useInvoices, useClients } from '@/hooks/useDemo';
 import { useDrawer } from '@/hooks/useDrawer';
 import { useData } from '@/services/DataProvider';
 import { fcfa, dateFr } from '@/domain/format';
 import type { Invoice } from '@/domain/types';
 import { DecisionDrawer } from '@/components/decision';
+import { NewInvoiceDialog } from '@/components/forms';
 import { DimensionsLegend, DueStatus, InvoiceOutcome, KpiCard, LevelChip, PageHeader, PriorityPill, RankTag, RiskBadge, Tabs } from '@/components/ui';
 
 type FilterKey = 'toutes' | 'ouvertes' | 'retard' | 'proche' | 'avenir' | 'payees' | 'attente' | 'supprimees';
@@ -27,7 +28,11 @@ export default function Factures() {
   const { data } = useData();
   const drawer = useDrawer();
   const [filter, setFilter] = useState<FilterKey>('toutes');
-  const [query, setQuery] = useState('');
+  const [params, setParams] = useSearchParams();
+  const [query, setQuery] = useState(params.get('q') ?? '');
+  const [creating, setCreating] = useState(params.get('new') === '1');
+  // La recherche globale (barre du haut) arrive ici via ?q=
+  useEffect(() => { setQuery(params.get('q') ?? ''); }, [params]);
 
   const rows = useMemo(() => {
     const f = FILTERS.find((x) => x.key === filter)!;
@@ -41,13 +46,13 @@ export default function Factures() {
       <PageHeader
         title="Factures"
         sub="Toutes vos factures, avec la décision du Rule Engine pour chacune."
-        actions={<><Link to="/app/import" className="vq-btn">Importer</Link><button type="button" className="vq-btn primary">+ Nouvelle facture</button></>}
+        actions={<><Link to="/app/import" className="vq-btn">Importer</Link><button type="button" className="vq-btn primary" onClick={() => setCreating(true)}>+ Nouvelle facture</button></>}
       />
       <div className="vq-grid cols-4">
-        <KpiCard label="Créances ouvertes" value={fcfa(k.openReceivables.value)} unit="FCFA" hint="7 factures · à date" />
-        <KpiCard label="En retard" value={fcfa(k.late.value)} unit="FCFA" hint="3 factures" tone="red" />
-        <KpiCard label="À encaisser · 30 j" value={fcfa(k.expected30d.value)} unit="FCFA" hint="4 factures proches ou à venir" />
-        <KpiCard label="Encaissé · ce mois" value={fcfa(k.collectedMonth.value)} unit="FCFA" hint="3 factures payées" />
+        <KpiCard label="Créances ouvertes" value={fcfa(k.openReceivables.value)} unit="FCFA" hint={`${k.openReceivables.count} factures · à date`} />
+        <KpiCard label="En retard" value={fcfa(k.late.value)} unit="FCFA" hint={`${k.late.count} factures`} tone="red" />
+        <KpiCard label="À encaisser · 30 j" value={fcfa(k.expected30d.value)} unit="FCFA" hint={`${k.expected30d.count} factures proches ou à venir`} />
+        <KpiCard label="Encaissé · ce mois" value={fcfa(k.collectedMonth.value)} unit="FCFA" hint={`${k.collectedMonth.count} paiements`} />
       </div>
 
       <section className="vq-card" style={{ gap: 8 }}>
@@ -55,7 +60,7 @@ export default function Factures() {
           <div style={{ flex: 1, minWidth: 0 }}>
             <Tabs label="Filtrer les factures" value={filter} onChange={setFilter} tabs={FILTERS.map((f) => ({ key: f.key, label: f.label, count: all.filter(f.test).length }))} />
           </div>
-          <input className="vq-input" style={{ width: 260, height: 40 }} type="search" placeholder="Filtrer : numéro ou client" aria-label="Filtrer les factures par numéro ou client" value={query} onChange={(e) => setQuery(e.target.value)} />
+          <input className="vq-input" style={{ width: 260, height: 40 }} type="search" placeholder="Filtrer : numéro ou client" aria-label="Filtrer les factures par numéro ou client" value={query} onChange={(e) => { setQuery(e.target.value); if (params.get('q')) setParams({}, { replace: true }); }} />
         </div>
         <div className="vq-table-wrap">
           <table className="vq-table">
@@ -65,7 +70,7 @@ export default function Factures() {
             <tbody>
               {rows.map((inv) => (
                 <tr key={inv.id} className={drawer.selected === inv.id ? 'selected' : ''}>
-                  <td className="vq-mono strong">{inv.dueStatus === 'paid' ? inv.id : <Link className="vq-link" to={`/app/factures/${inv.id}`}>{inv.id}</Link>}</td>
+                  <td className="vq-mono strong"><Link className="vq-link" to={`/app/factures/${inv.id}`}>{inv.id}</Link></td>
                   <td className="strong">{byId(inv.clientId)?.name}</td>
                   <td className="num">{fcfa(inv.amount)}</td>
                   <td>{dateFr(inv.dueDate)}<div><DueStatus invoice={inv} /></div></td>
@@ -86,6 +91,7 @@ export default function Factures() {
         <DimensionsLegend />
       </div>
       <DecisionDrawer invoiceId={drawer.selected} onClose={drawer.close} />
+      <NewInvoiceDialog open={creating} onClose={() => { setCreating(false); if (params.get('new')) setParams({}, { replace: true }); }} onCreated={() => { setFilter('toutes'); setQuery(''); }} />
     </>
   );
 }

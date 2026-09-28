@@ -3,11 +3,13 @@ import { fcfa } from '@/domain/format';
 import { useData } from '@/services/DataProvider';
 import { useInvoices } from '@/hooks/useDemo';
 import type { Task } from '@/domain/types';
+import { useToast } from '@/components/ui';
 import './TaskCard.css';
 
 /** Tâche manuelle : cas d'usage ClaimTask (Prendre en charge) puis CompleteTask (Clôturer). */
 export function TaskCard({ task, onWhy }: { task: Task; onWhy: (invoiceId: string) => void }) {
-  const { claimTask, completeTask, resetTasks, error } = useData();
+  const { claimTask, completeTask, error } = useData();
+  const toast = useToast();
   const inv = useInvoices().byId(task.invoiceId);
   const idx = TASK_PATH.indexOf(task.state);
 
@@ -44,12 +46,13 @@ export function TaskCard({ task, onWhy }: { task: Task; onWhy: (invoiceId: strin
       </ol>
       <div className="actions">
         {(task.state === 'RESCHEDULED' || task.state === 'PROPOSED') && (
-          <><button type="button" className="vq-btn primary" onClick={() => claimTask(task.id)}>Prendre en charge</button><span className="vq-code">ClaimTask</span></>
+          <><button type="button" className="vq-btn primary" onClick={async () => { if (!(await claimTask(task.id))) toast('Tâche prise en charge'); }}>Prendre en charge</button><span className="vq-code">ClaimTask</span></>
         )}
         {task.state === 'CLAIMED' && (
-          <><button type="button" className="vq-btn primary" onClick={() => completeTask(task.id)}>Clôturer</button><span className="vq-code">CompleteTask</span></>
+          <><button type="button" className="vq-btn primary" onClick={async () => { if (!(await completeTask(task.id))) toast('Tâche clôturée'); }}>Clôturer</button><span className="vq-code">CompleteTask</span></>
         )}
-        {task.state === 'COMPLETED' && <button type="button" className="vq-btn" onClick={resetTasks}>Réinitialiser la démonstration</button>}
+        {task.state === 'COMPLETED' && <span className="vq-chip ok">Tâche clôturée · résultat ajouté au journal</span>}
+        {task.state === 'CANCELLED' && <span className="vq-chip">Tâche annulée (approbation refusée)</span>}
       </div>
       {error && <div role="alert" className="vq-callout amber">{error}</div>}
     </div>

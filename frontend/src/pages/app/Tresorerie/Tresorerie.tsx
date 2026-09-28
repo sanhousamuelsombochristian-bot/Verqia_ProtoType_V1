@@ -22,7 +22,7 @@ export default function Tresorerie() {
   const max = Math.max(...bars.map((b) => b.amount));
   const moves = [
     ...open.filter((i) => i.dueStatus !== 'late').map((i) => ({ date: i.dueDate, who: `${byId(i.clientId)?.name} · ${i.id}`, what: i.dueStatus === 'near' ? 'Attendu · proche' : 'Attendu · à venir', amount: i.amount, paid: false })),
-    ...all.filter((i) => i.dueStatus === 'paid').map((i) => ({ date: i.paidOn!, who: `${byId(i.clientId)?.name} · ${i.id}`, what: 'Encaissé', amount: i.amount, paid: true })),
+    ...data.payments.map((p) => { const i = all.find((x) => x.id === p.invoiceId); return { date: p.date, who: `${byId(i?.clientId ?? '')?.name} · ${p.invoiceId}`, what: `Encaissé · ${p.method}`, amount: p.amount, paid: true }; }),
   ];
 
   return (
@@ -30,8 +30,8 @@ export default function Tresorerie() {
       <PageHeader title="Trésorerie" sub="Ce qui est en caisse, ce qui doit rentrer, et quand." />
       <div className="vq-grid cols-4">
         <KpiCard label="Solde de trésorerie · aujourd’hui" value={fcfa(k.cashToday.value)} unit="FCFA" hint="Valeur de démonstration" />
-        <KpiCard label="Encaissements attendus · 30 j" value={fcfa(k.expected30d.value)} unit="FCFA" hint="4 factures proches ou à venir" />
-        <KpiCard label="Encours en retard" value={fcfa(k.late.value)} unit="FCFA" hint="3 factures · date incertaine" tone="red" />
+        <KpiCard label="Encaissements attendus · 30 j" value={fcfa(k.expected30d.value)} unit="FCFA" hint={`${k.expected30d.count} factures proches ou à venir`} />
+        <KpiCard label="Encours en retard" value={fcfa(k.late.value)} unit="FCFA" hint={`${k.late.count} factures · date incertaine`} tone="red" />
         <KpiCard label="Trésorerie prévisionnelle · 30 j" value={fcfa(k.forecast30d.value)} unit="FCFA" hint="Scénario base · estimation" />
       </div>
       <div className="vq-row">
@@ -50,7 +50,7 @@ export default function Tresorerie() {
         <section className="vq-card" style={{ width: 420, flexShrink: 0 }}>
           <SectionHead eyebrow="Mouvements" title="Encaissements récents et attendus" />
           {moves.map((m) => (
-            <div key={m.who} className="vq-event" style={{ alignItems: 'center' }}>
+            <div key={m.who + m.date + m.amount} className="vq-event" style={{ alignItems: 'center' }}>
               <span className="vq-sub" style={{ width: 90 }}>{dateFr(m.date)}</span>
               <div style={{ flex: 1 }}><div className="title">{m.who}</div><div className="detail">{m.what}</div></div>
               <strong style={{ color: m.paid ? 'var(--accent)' : 'var(--heading)' }}>+ {fcfa(m.amount)}</strong>

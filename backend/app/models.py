@@ -27,6 +27,7 @@ class Invoice(BaseModel):
     dueStatus: DueStatus
     delayLabel: str
     paidOn: Optional[str] = None
+    amountPaid: Optional[int] = None
     rank: Optional[int] = None
     priority: Optional[Priority] = None
     risk: Optional[Risk] = None
@@ -41,17 +42,20 @@ class Invoice(BaseModel):
 
 class Client(BaseModel):
     id: str
-    rank: int
+    rank: Optional[int] = None
     name: str
-    priority: Priority
-    risk: Risk
-    level: str
+    priority: Optional[Priority] = None
+    risk: Optional[Risk] = None
+    level: Optional[str] = None
+    email: Optional[str] = None
+    phone: Optional[str] = None
+    sector: Optional[str] = None
     openInvoices: int = 0
     outstanding: int = 0
 
 
 class Event(BaseModel):
-    cat: Literal["decision", "action", "hold", "promesse", "paiement", "facture"]
+    cat: Literal["decision", "action", "hold", "promesse", "paiement", "facture", "client"]
     title: str
     detail: str
     at: str

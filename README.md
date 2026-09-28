@@ -25,7 +25,7 @@ VERQIA PILOT  Code/
 │       └── styles/      Jetons de design, base, composants
 ├── backend/             API — Python 3.11+ · FastAPI · Pydantic
 │   ├── app/             main.py, models.py, repository.py, routers/
-│   └── tests/           pytest (12 tests)
+│   └── tests/           pytest (24 tests)
 ├── shared/              SOURCE UNIQUE : demo-data.json + lexique.json (lus par le front ET le back)
 ├── docs/                Architecture, vocabulaire, API
 ├── scripts/             installer.ps1 · demarrer.ps1 · tester.ps1 (Windows) · demarrer.sh
@@ -67,6 +67,8 @@ Il utilise alors directement `shared/demo-data.json` (badge « local » en haut 
 3. **Tri « À traiter maintenant »** : rang → priorité → échéance, jamais par montant (testé).
 4. **Vocabulaire unique** : libellés français à l’écran, codes moteur en détail (`shared/lexique.json`).
 5. **Tâches manuelles** : `ClaimTask` puis `CompleteTask` ; bloquées si une approbation est requise (testé).
-6. **Tarifs** : indicatifs et temporaires, peuvent changer à tout moment.
+6. **Boutons d’action** : nouveau client, nouvelle facture, paiement, mise en attente, approbation, notes, export CSV —
+   ils enregistrent des faits et ne recalculent jamais la décision du moteur (voir `docs/ARCHITECTURE.md`).
+7. **Tarifs** : indicatifs et temporaires, peuvent changer à tout moment.
 
 Voir `docs/ARCHITECTURE.md` et `docs/VOCABULAIRE.md`.

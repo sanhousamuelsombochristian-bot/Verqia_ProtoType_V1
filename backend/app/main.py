@@ -7,7 +7,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from .config import API_TITLE, API_VERSION, CORS_ORIGINS
-from .routers import clients, events, invoices, meta, tasks
+from .routers import actions, clients, events, invoices, meta, tasks
 
 app = FastAPI(
     title=API_TITLE,
@@ -17,5 +17,5 @@ app = FastAPI(
 )
 app.add_middleware(CORSMiddleware, allow_origins=CORS_ORIGINS, allow_methods=["*"], allow_headers=["*"])
 
-for r in (meta.router, invoices.router, clients.router, events.router, tasks.router):
+for r in (meta.router, invoices.router, clients.router, events.router, tasks.router, actions.router):
     app.include_router(r)

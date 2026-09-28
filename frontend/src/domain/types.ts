@@ -22,6 +22,8 @@ export interface Invoice {
   dueStatus: DueStatus;
   delayLabel: string;
   paidOn?: string | null;
+  /** Montant déjà encaissé (paiements partiels). */
+  amountPaid?: number;
   rank: number | null;
   priority: Priority | null;
   risk: Risk | null;
@@ -36,16 +38,20 @@ export interface Invoice {
 
 export interface Client {
   id: string;
-  rank: number;
+  /** null tant que le Rule Engine n'a pas évalué le client. */
+  rank: number | null;
   name: string;
-  priority: Priority;
-  risk: Risk;
-  level: string;
+  priority: Priority | null;
+  risk: Risk | null;
+  level: string | null;
+  email?: string;
+  phone?: string;
+  sector?: string;
   openInvoices?: number;
   outstanding?: number;
 }
 
-export type EventCat = 'decision' | 'action' | 'hold' | 'promesse' | 'paiement' | 'facture';
+export type EventCat = 'decision' | 'action' | 'hold' | 'promesse' | 'paiement' | 'facture' | 'client';
 export interface BusinessEvent {
   cat: EventCat;
   title: string;
@@ -55,6 +61,10 @@ export interface BusinessEvent {
 }
 
 export interface Hold {
+  id?: string;
+  /** Facture (INVOICE), client (CUSTOMER) ou organisation entière (ORGANIZATION). */
+  targetId?: string;
+  createdAt?: string;
   type: 'MANUAL_SUSPENSION' | 'LEGAL' | 'NEGOTIATION';
   scope: 'INVOICE' | 'CUSTOMER' | 'ORGANIZATION';
   retryAt: string;
@@ -90,6 +100,24 @@ export interface Task {
   blockedByApproval: boolean;
 }
 
+export type PaymentMethod = 'Virement' | 'Mobile money' | 'Espèces' | 'Chèque' | '[à préciser]';
+
+export interface Payment {
+  id: string;
+  invoiceId: string;
+  amount: number;
+  date: string;
+  method: PaymentMethod;
+  reconciled: boolean;
+}
+
+export interface Note {
+  id: string;
+  invoiceId: string;
+  text: string;
+  at: string;
+}
+
 export interface Kpi {
   value: number;
   count?: number;
@@ -108,5 +136,8 @@ export interface DemoData {
   promises: PaymentPromise[];
   tasks: Task[];
   kpis: Record<string, Kpi>;
+  payments?: Payment[];
+  holds?: Hold[];
+  notes?: Note[];
   scenarios: { start: number; slopes: Record<'pess' | 'base' | 'opt', number>; note: string };
 }
