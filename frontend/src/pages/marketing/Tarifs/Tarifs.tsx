@@ -8,7 +8,7 @@ const PLANS = [
   { name: 'Entreprise', target: 'Pour des besoins spécifiques à étudier', price: 'Sur devis', unit: '', cta: 'Nous contacter', environments: 'Quota à définir', features: ['Périmètre adapté aux besoins', 'Rôles avancés si disponibles', 'Étude des besoins d’intégration'], highlight: false },
 ];
 const FAQ = [
-  { q: 'Les tarifs sont-ils définitifs ?', a: 'Non. Ce sont des tarifs de lancement indicatifs, en cours de validation avec nos premières entreprises pilotes. Ils peuvent changer à tout moment.' },
+  { q: 'Les tarifs sont-ils définitifs ?', a: 'Non. Les montants affichés sont des hypothèses de travail et ne constituent pas une grille tarifaire officielle.' },
   { q: 'Dois-je changer de logiciel de gestion ?', a: 'Non. VERQIA PILOT est une couche spécialisée qui fonctionne à côté de vos outils actuels : ERP, comptabilité, caisse.' },
   { q: 'Le produit est-il déjà disponible ?', a: 'VERQIA PILOT est en cours de développement. Le programme pilote permet de participer à sa construction et d’orienter ses priorités.' },
 ];
@@ -28,7 +28,7 @@ export default function Tarifs() {
       <section className="vq-section">
         <div className="vq-eyebrow">Le moment magique</div>
         <h2 className="xl">Du chaos à la clarté, <span className="vq-hl">en un clic.</span></h2>
-        <p className="lead">Voici la journée d’un dirigeant avant et avec VERQIA PILOT. Cliquez sur le bouton pour voir la différence.</p>
+        <p className="lead">Comparez une organisation dispersée et une vue de pilotage structurée. Les chiffres et entreprises de cette démonstration sont entièrement fictifs.</p>
         <div className="vq-seg" role="group" aria-label="Avant ou après" style={{ alignSelf: 'flex-start' }}>
           <button type="button" aria-pressed={!after} onClick={() => setAfter(false)}>Avant</button>
           <button type="button" aria-pressed={after} onClick={() => setAfter(true)}>Avec VERQIA PILOT</button>
@@ -42,7 +42,7 @@ export default function Tarifs() {
               <div className="vq-tile"><div className="vq-label">Cahier</div><span>Relancer Client B ??</span><span>Client A a payé la moitié ?</span><span>Appeler lundi (ou mardi)</span></div>
               <div className="vq-tile"><div className="vq-label">E-mails</div><span>RE: RE: Facture n°0142</span><span>Relance facture — urgent</span><span>+ 23 non lus</span></div>
               <div className="questions">{['Combien va rentrer ce mois-ci ?', 'Qui relancer en premier ?', 'Qui a promis de payer ?'].map((q) => <span key={q} className="vq-chip">{q}</span>)}</div>
-              <button type="button" className="vq-btn primary" onClick={() => setAfter(true)}>Activer VERQIA PILOT →</button>
+              <button type="button" className="vq-btn primary" onClick={() => setAfter(true)}>Voir la vue de démonstration →</button>
             </div>
           ) : (
             <div className="clarity">
@@ -67,7 +67,7 @@ export default function Tarifs() {
       </section>
 
       <section className="vq-section">
-        <h2>Et tout cela, avec un abonnement mensuel simple.</h2>
+        <h2>Des offres envisagées, à valider avant commercialisation.</h2>
         <div className="vq-callout amber filled"><span className="title-amber">Hypothèses tarifaires de travail — non définitives.</span> Ces montants servent à cadrer la réflexion commerciale. Ils ne constituent pas encore une grille tarifaire officielle.</div>
         <div className="vq-plans">
           {PLANS.map((p) => (
@@ -101,7 +101,7 @@ export default function Tarifs() {
 
       <section className="vq-section">
         <div className="vq-card" style={{ padding: 40, gap: 16 }}>
-          <h2>Prêt à vivre le moment magique chez vous ?</h2>
+          <h2>Vous souhaitez contribuer au programme pilote ?</h2>
           <p className="lead">Rejoignez le programme pilote et mesurez la différence sur vos propres créances.</p>
           <div><Link to="/inscription" className="vq-btn primary">Devenir entreprise pilote</Link></div>
         </div>
