@@ -1,6 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { saveSettings } from '@/services/settings';
+import { Link } from 'react-router-dom';
 import { AuthShell } from '../AuthShell';
 
 const SECTORS = ['Distribution / grossiste', 'Services B2B', 'BTP / fournisseur', 'Maintenance / location', 'Agence / cabinet', 'Autre'];
@@ -9,9 +8,9 @@ const EMAIL = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
 /** Inscription au programme pilote → Premiers pas (prototype : aucun compte réel n'est créé). */
 export default function Inscription() {
-  const navigate = useNavigate();
   const [f, setF] = useState({ nom: '', ent: '', sec: SECTORS[0], taille: SIZES[0], mail: '', tel: '', mdp: '', mdp2: '' });
   const [error, setError] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
   const set = (k: keyof typeof f) => (e: { target: { value: string } }) => setF({ ...f, [k]: e.target.value });
 
   const submit = (e: FormEvent) => {
@@ -22,11 +21,7 @@ export default function Inscription() {
     if (f.mdp.length < 8) return setError('Le mot de passe doit contenir au moins 8 caractères.');
     if (f.mdp !== f.mdp2) return setError('Les deux mots de passe ne correspondent pas.');
     setError(null);
-    // Pré-remplit Paramètres et Profil avec les informations saisies (sans le mot de passe).
-    saveSettings('entreprise', { name: f.ent.trim(), sector: f.sec, address: '', currency: 'FCFA (XOF)', email: f.mail, whatsapp: f.tel });
-    const [prenom, ...rest] = f.nom.trim().split(' ');
-    saveSettings('profil', { prenom, nom: rest.join(' '), mail: f.mail, tel: f.tel, org: f.ent.trim(), role: '[rôle à définir]' });
-    navigate('/app/premiers-pas');
+    setNotice('Le parcours d’inscription est une maquette : aucun compte n’a été créé et aucune donnée n’a été transmise. L’authentification devra être connectée au backend avant l’ouverture du service.');
   };
 
   return (
@@ -44,8 +39,9 @@ export default function Inscription() {
           <div className="vq-field"><label htmlFor="mdp">Mot de passe *</label><input id="mdp" type="password" className="vq-input" autoComplete="new-password" value={f.mdp} onChange={set('mdp')} /></div>
           <div className="vq-field"><label htmlFor="mdp2">Confirmer le mot de passe *</label><input id="mdp2" type="password" className="vq-input" autoComplete="new-password" value={f.mdp2} onChange={set('mdp2')} /></div>
         </div>
-        <p className="vq-sub">Tarif temporaire, susceptible de changer à tout moment. Prototype : aucun compte réel n’est créé.</p>
+        <p className="vq-sub">Prototype de démonstration : aucun compte réel ne sera créé avec ce formulaire.</p>
         {error && <div role="alert" className="vq-callout amber filled">{error}</div>}
+        {notice && <div role="status" className="vq-callout amber filled">{notice}</div>}
         <button type="submit" className="vq-btn primary" style={{ height: 54, fontSize: 17 }}>Créer mon compte →</button>
         <div style={{ textAlign: 'center', color: 'var(--muted2)' }}>Déjà inscrit ? <Link to="/connexion" className="vq-link">Connexion</Link></div>
       </form>
