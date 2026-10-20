@@ -1,4 +1,4 @@
-import { Link, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import './PagesPubliques.css';
 
