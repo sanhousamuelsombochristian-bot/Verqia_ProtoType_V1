@@ -15,7 +15,7 @@ createRoot(document.getElementById('root')!).render(
     <ThemeProvider>
       <DataProvider>
         <ToastProvider>
-          <BrowserRouter>
+          <BrowserRouter basename={import.meta.env.BASE_URL}>
             <App />
           </BrowserRouter>
         </ToastProvider>
