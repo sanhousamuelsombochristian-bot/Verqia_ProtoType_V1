@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 import './Tarifs.css';
 
 const PLANS = [
-  { name: 'Pilote', target: 'Premiers clients, phase de validation', price: '10 000 – 15 000', unit: 'FCFA / mois', cta: 'Rejoindre le pilote', highlight: true },
-  { name: 'Starter', target: 'Petites structures', price: '≈ 15 000', unit: 'FCFA / mois', cta: 'Choisir' },
-  { name: 'Business', target: 'PME avec plusieurs utilisateurs', price: '≈ 30 000', unit: 'FCFA / mois', cta: 'Choisir' },
-  { name: 'Pro', target: 'Entreprises plus complexes', price: '50 000 – 75 000', unit: 'FCFA / mois', cta: 'Choisir' },
-  { name: 'Enterprise', target: 'Multi-sites, besoins spécifiques', price: 'Sur devis', unit: '', cta: 'Nous contacter' },
+  { name: 'Essentiel', target: 'Pour structurer le suivi d’une petite entreprise', price: '9 900', unit: 'FCFA / mois', cta: 'Découvrir le pilote', environments: '1 environnement', features: ['Clients et factures', 'Suivi des échéances', 'Vue de pilotage essentielle'], highlight: false },
+  { name: 'Croissance', target: 'Pour suivre plusieurs boutiques ou activités', price: '24 900', unit: 'FCFA / mois', cta: 'Découvrir le pilote', environments: 'Jusqu’à 3 environnements', features: ['Tout Essentiel', 'Vue par environnement', 'Rapports selon les fonctions disponibles'], highlight: true },
+  { name: 'Entreprise', target: 'Pour des besoins spécifiques à étudier', price: 'Sur devis', unit: '', cta: 'Nous contacter', environments: 'Quota à définir', features: ['Périmètre adapté aux besoins', 'Rôles avancés si disponibles', 'Étude des besoins d’intégration'], highlight: false },
 ];
 const FAQ = [
   { q: 'Les tarifs sont-ils définitifs ?', a: 'Non. Ce sont des tarifs de lancement indicatifs, en cours de validation avec nos premières entreprises pilotes. Ils peuvent changer à tout moment.' },
@@ -70,18 +68,20 @@ export default function Tarifs() {
 
       <section className="vq-section">
         <h2>Et tout cela, avec un abonnement mensuel simple.</h2>
-        <div className="vq-callout amber filled"><span className="title-amber">Tarifs de lancement indicatifs et temporaires.</span> Ils sont en cours de validation avec nos premières entreprises et peuvent changer à tout moment.</div>
+        <div className="vq-callout amber filled"><span className="title-amber">Hypothèses tarifaires de travail — non définitives.</span> Ces montants servent à cadrer la réflexion commerciale. Ils ne constituent pas encore une grille tarifaire officielle.</div>
         <div className="vq-plans">
           {PLANS.map((p) => (
             <div key={p.name} className={`vq-card ${p.highlight ? 'hl' : ''}`}>
               <div className="vq-h2" style={{ fontSize: 22 }}>{p.name}</div>
               <div className="vq-sub">{p.target}</div>
               <div className="price">{p.price} <span className="vq-sub">{p.unit}</span></div>
-              <Link to="/inscription" className={`vq-btn ${p.highlight ? 'primary' : ''}`}>{p.cta}</Link>
+              <div className="vq-plan-quota">{p.environments}</div>
+              <ul className="vq-plan-features">{p.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
+              <Link to={p.name === 'Entreprise' ? '/contact' : '/inscription'} className={`vq-btn ${p.highlight ? 'primary' : ''}`}>{p.cta}</Link>
             </div>
           ))}
         </div>
-        <p className="vq-sub">Le contenu détaillé de chaque offre sera précisé à l’issue du programme pilote.</p>
+        <p className="vq-sub">Les prix et quotas doivent être validés avant toute commercialisation. Aucun abonnement payant n’est activé depuis cette page.</p>
       </section>
 
       <section className="vq-section">
