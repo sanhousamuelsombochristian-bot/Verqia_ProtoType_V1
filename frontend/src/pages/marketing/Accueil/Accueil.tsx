@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Accueil.css';
 
@@ -38,17 +37,16 @@ const SEGMENTS = [
 
 /** Accueil du site vitrine. */
 export default function Accueil() {
-  const [video, setVideo] = useState(false);
   return (
     <>
       <section className="vq-hero">
         <div className="copy">
           <span className="vq-pill-badge">Programme pilote ouvert · Côte d’Ivoire</span>
-          <h1>De la facture à la <span className="vq-hl">trésorerie.</span></h1>
-          <p>VERQIA PILOT centralise vos factures, suit vos échéances, priorise vos relances et vous montre ce qui va réellement rentrer — sans remplacer vos outils actuels.</p>
+          <h1>Votre trésorerie mérite une <span className="vq-hl">longueur d’avance.</span></h1>
+          <p>Verqia Pilot vous aide à centraliser vos factures clients, suivre vos échéances et organiser vos relances pour mieux anticiper les encaissements — sans remplacer vos outils actuels.</p>
           <div className="ctas">
-            <Link to="/inscription" className="vq-btn primary lg">Rejoindre le programme pilote →</Link>
-            <Link to="/tarifs" className="vq-btn lg">Voir le moment magique</Link>
+            <Link to="/inscription" className="vq-btn primary lg">Créer mon espace →</Link>
+            <Link to="/fonctionnalites" className="vq-btn lg">Découvrir la plateforme</Link>
           </div>
           <small className="vq-muted">Pour les PME et TPE B2B qui vendent à crédit.</small>
         </div>
@@ -79,18 +77,10 @@ export default function Accueil() {
       </section>
 
       <section className="vq-section">
-        <div className="vq-eyebrow">En vidéo</div>
-        <h2>Découvrez VERQIA PILOT en action</h2>
-        <p className="lead">La vidéo de présentation arrive bientôt.</p>
-        <button type="button" className="vq-video" onClick={() => setVideo(true)} aria-label="Lire la vidéo de présentation">
-          <span className="play" aria-hidden>▶</span>
-          <span>De la facture à la trésorerie, en quelques minutes</span>
-        </button>
-        {video && (
-          <div className="vq-callout lime" role="dialog" aria-label="Vidéo">
-            Emplacement réservé : votre vidéo sera intégrée ici. <button type="button" className="vq-btn sm" onClick={() => setVideo(false)}>Fermer</button>
-          </div>
-        )}
+        <div className="vq-eyebrow">Aperçu du produit</div>
+        <h2>Comprendre avant de choisir.</h2>
+        <p className="lead">Explorez les fonctionnalités et la démonstration interactive disponibles dans cette version du prototype. Une vidéo sera ajoutée lorsqu’elle sera prête.</p>
+        <div><Link to="/tarifs" className="vq-btn primary">Voir la démonstration →</Link></div>
       </section>
 
       <section className="vq-section">

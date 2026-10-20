@@ -78,7 +78,9 @@
 }
 
 :root {
-  --font: 'Inter', Arial, sans-serif;
+  --font: 'DM Sans', Arial, sans-serif;
+  --font-display: 'Space Grotesk', 'DM Sans', sans-serif;
+  --font-editorial: 'Instrument Serif', Georgia, serif;
   --mono: 'JetBrains Mono', ui-monospace, monospace;
   --radius-sm: 8px;
   --radius: 12px;

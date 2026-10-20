@@ -6,8 +6,12 @@
 .vq-magic .chaos > button { grid-column: 1 / -1; justify-self: start; }
 .vq-magic .clarity { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
 .vq-magic .clarity > .vq-grid, .vq-magic .clarity > .vq-event { width: 100%; }
-.vq-plans { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.vq-plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .vq-plans .hl { background: var(--a12); border-color: var(--a-border); }
-.vq-plans .price { font-size: 24px; font-weight: 800; color: var(--heading); margin: 8px 0; }
+.vq-plans .price { font-size: clamp(22px, 2vw, 30px); font-weight: 600; letter-spacing: -.04em; color: var(--heading); margin: 10px 0; }
+.vq-plan-quota { color: var(--accent); font-size: 13px; font-weight: 700; }
+.vq-plan-features { margin: 8px 0 12px; padding-left: 18px; display: flex; flex-direction: column; gap: 10px; color: var(--muted2); font-size: 14px; line-height: 1.45; }
+.vq-plans .vq-card { align-items: flex-start; min-width: 0; }
+.vq-plans .vq-btn { margin-top: auto; }
 @media (max-width: 1100px) { .vq-plans { grid-template-columns: repeat(2, minmax(0, 1fr)); } .vq-magic .chaos { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 640px) { .vq-plans, .vq-magic .chaos { grid-template-columns: 1fr; } }

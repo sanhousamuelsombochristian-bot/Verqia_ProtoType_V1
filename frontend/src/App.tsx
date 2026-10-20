@@ -7,6 +7,13 @@ import { AppLayout } from '@/components/layout/AppLayout';
 const Accueil = lazy(() => import('@/pages/marketing/Accueil'));
 const Entreprise = lazy(() => import('@/pages/marketing/Entreprise'));
 const Tarifs = lazy(() => import('@/pages/marketing/Tarifs'));
+const Fonctionnalites = lazy(() => import('@/pages/marketing/PagesPubliques').then(m => ({ default: m.Fonctionnalites })));
+const Solutions = lazy(() => import('@/pages/marketing/PagesPubliques').then(m => ({ default: m.Solutions })));
+const Securite = lazy(() => import('@/pages/marketing/PagesPubliques').then(m => ({ default: m.Securite })));
+const Ressources = lazy(() => import('@/pages/marketing/PagesPubliques').then(m => ({ default: m.Ressources })));
+const Contact = lazy(() => import('@/pages/marketing/PagesPubliques').then(m => ({ default: m.Contact })));
+const Confidentialite = lazy(() => import('@/pages/marketing/PagesPubliques').then(m => ({ default: m.Confidentialite })));
+const Conditions = lazy(() => import('@/pages/marketing/PagesPubliques').then(m => ({ default: m.Conditions })));
 const Connexion = lazy(() => import('@/pages/auth/Connexion'));
 const Inscription = lazy(() => import('@/pages/auth/Inscription'));
 const VueEnsemble = lazy(() => import('@/pages/app/VueEnsemble'));
@@ -38,6 +45,13 @@ export default function App() {
           <Route index element={<Accueil />} />
           <Route path="entreprise" element={<Entreprise />} />
           <Route path="tarifs" element={<Tarifs />} />
+          <Route path="fonctionnalites" element={<Fonctionnalites />} />
+          <Route path="solutions" element={<Solutions />} />
+          <Route path="securite" element={<Securite />} />
+          <Route path="ressources" element={<Ressources />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="confidentialite" element={<Confidentialite />} />
+          <Route path="conditions" element={<Conditions />} />
         </Route>
         <Route path="connexion" element={<Connexion />} />
         <Route path="inscription" element={<Inscription />} />
