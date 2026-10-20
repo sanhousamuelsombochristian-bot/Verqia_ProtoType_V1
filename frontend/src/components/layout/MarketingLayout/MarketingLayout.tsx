@@ -13,9 +13,10 @@ export function MarketingLayout() {
       <header className="vq-site-nav">
         <Logo />
         <nav aria-label="Navigation du site" className="links">
-          <NavLink to="/" end>Accueil</NavLink>
-          <NavLink to="/entreprise">Entreprise</NavLink>
+          <NavLink to="/fonctionnalites">Fonctionnalités</NavLink>
+          <NavLink to="/solutions">Solutions</NavLink>
           <NavLink to="/tarifs">Tarifs</NavLink>
+          <NavLink to="/ressources">Ressources</NavLink>
         </nav>
         <div className="actions">
           <button type="button" className="vq-btn sm" onClick={toggle} aria-label="Changer de mode">
@@ -36,19 +37,24 @@ export function MarketingLayout() {
           </div>
           <div>
             <div className="vq-label">Produit</div>
-            <Link to="/">Accueil</Link>
-            <Link to="/tarifs">Moment magique &amp; tarifs</Link>
+            <Link to="/fonctionnalites">Fonctionnalités</Link>
+            <Link to="/solutions">Solutions</Link>
+            <Link to="/tarifs">Tarifs</Link>
+            <Link to="/securite">Sécurité et confiance</Link>
             <Link to="/connexion">Espace client</Link>
           </div>
           <div>
             <div className="vq-label">Entreprise</div>
             <Link to="/entreprise">Mission &amp; vision</Link>
+            <Link to="/ressources">Ressources</Link>
+            <Link to="/contact">Contact</Link>
             <Link to="/inscription">Programme pilote</Link>
           </div>
           <div>
             <div className="vq-label">Contact</div>
-            <span>E-mail : à compléter</span>
-            <span>Téléphone : à compléter</span>
+            <Link to="/confidentialite">Confidentialité</Link>
+            <Link to="/conditions">Conditions d’utilisation</Link>
+            <span>Coordonnées officielles à configurer avant publication.</span>
             <span>Côte d’Ivoire</span>
           </div>
         </div>
