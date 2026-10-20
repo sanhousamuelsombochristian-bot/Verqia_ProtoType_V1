@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, type ReactNode } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import './PagesPubliques.css';
 
 type Item = { title: string; text: string; status?: string };
 
-function Intro({ eyebrow, title, lead }: { eyebrow: string; title: string; lead: string }) {
+function Intro({ eyebrow, title, lead }: { eyebrow: string; title: ReactNode; lead: string }) {
   return <header className="vq-public-intro"><span className="vq-eyebrow">{eyebrow}</span><h1>{title}</h1><p className="lead">{lead}</p></header>;
 }
 
@@ -25,7 +26,7 @@ export function Fonctionnalites() {
         {title:'Import de données',text:'Préparez la reprise de données à partir des formats réellement pris en charge par votre espace.',status:'Formats à vérifier'},
         {title:'Plusieurs environnements',text:'Organisez plusieurs boutiques ou activités sous une même organisation lorsque le compte et son forfait le permettent.',status:'Selon configuration'}
       ]}/>
-      <div className="vq-public-cta"><h2>Commencez par votre suivi actuel.</h2><p>Découvrez le parcours de démonstration et les capacités disponibles dans le prototype.</p><Link className="vq-btn primary" to="/inscription">Découvrir le parcours →</Link></div>
+      <div className="vq-public-cta"><h2>Commencez par votre suivi actuel.</h2><p>Découvrez le parcours de démonstration et les capacités disponibles dans le prototype.</p><RouterLink className="vq-btn primary" to="/inscription">Découvrir le parcours →</RouterLink></div>
     </section>
   </div>;
 }
