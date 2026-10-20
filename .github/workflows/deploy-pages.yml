@@ -2,7 +2,7 @@ name: Build and deploy Verqia Pilot to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, feature/verqia-public-pages]
   pull_request:
     branches: [main]
   workflow_dispatch:
