@@ -41,7 +41,7 @@ export function Solutions() {
       {title:'Prestataires B2B',text:'Gardez une vue d’ensemble des factures de prestations, des échéances et des actions de suivi.'},
       {title:'Entreprises multi-sites',text:'Préparez une organisation par environnement, sous réserve des fonctions et quotas effectivement activés.'}
     ]}/>
-    <div className="vq-public-cta"><h2>Chaque entreprise a son rythme.</h2><p>Le programme pilote permet de confronter le produit aux pratiques réelles avant de figer les promesses commerciales.</p><RouterLink className="vq-btn primary" to="/inscription">Rejoindre le programme pilote</Link></div>
+    <div className="vq-public-cta"><h2>Chaque entreprise a son rythme.</h2><p>Le programme pilote permet de confronter le produit aux pratiques réelles avant de figer les promesses commerciales.</p><RouterLink className="vq-btn primary" to="/inscription">Rejoindre le programme pilote</RouterLink></div>
   </section></div>;
 }
 
@@ -74,7 +74,7 @@ export function Ressources() {
 export function Contact() {
   return <div className="vq-public-page"><section className="vq-section">
     <Intro eyebrow="Contact" title={<>Parlons de votre cycle d’encaissement.</>} lead="Verqia Pilot est en phase de validation. Le moyen de contact officiel doit être configuré avant de publier un formulaire qui prétend transmettre vos informations." />
-    <div className="vq-public-cta"><h2>Vous souhaitez participer au programme pilote ?</h2><p>Présentez votre entreprise via le parcours d’inscription du prototype. Celui-ci ne crée pas encore de compte authentifié ni n’envoie de demande à une équipe.</p><RouterLink className="vq-btn primary" to="/inscription">Ouvrir le formulaire de candidature</Link></div>
+    <div className="vq-public-cta"><h2>Vous souhaitez participer au programme pilote ?</h2><p>Présentez votre entreprise via le parcours d’inscription du prototype. Celui-ci ne crée pas encore de compte authentifié ni n’envoie de demande à une équipe.</p><RouterLink className="vq-btn primary" to="/inscription">Ouvrir le formulaire de candidature</RouterLink></div>
   </section></div>;
 }
 
